@@ -1,0 +1,11 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: ibm-eventstreams
+  labels:
+    backup.integration.ibm.com/component: subscription        
+spec:
+  channel: v3.3
+  name: ibm-eventstreams
+  source: ibm-eventstreams
+  sourceNamespace: openshift-marketplace
