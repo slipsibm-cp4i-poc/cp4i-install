@@ -1,6 +1,6 @@
 # CP4I Install Notes
 
-`oc login with proper credentials`
+oc login with proper credentials
 
 `./00-create-namespace.sh`
 
