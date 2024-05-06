@@ -1,6 +1,8 @@
-# cp4i-install
+# CP4I Install Notes
 
-oc login with proper credentials
+`oc login with proper credentials`
+
+```bash
 
 ./00-create-namespace.sh
 oc apply -f 01a-certmanager-opgroup.yaml
@@ -14,3 +16,4 @@ oc apply -f  06-eem-sub.yaml
 oc apply -f  07-es-sub.yaml
 oc apply -f  08-license-sub.yaml
 oc apply -f  09-mq-sub.yaml
+```
