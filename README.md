@@ -4,6 +4,7 @@ oc login with proper credentials
 
 download and install ibm-pak plugin
 
+add entitlement key to global pull secret
 
 `./00-create-namespaces.sh`
 
@@ -32,4 +33,8 @@ download and install ibm-pak plugin
 `oc apply -f  10-auto-foundation-assets-sub.yaml`
 
 `oc apply -f  11-platformnavigatorui.yaml`
+
+`oc get consolelink | grep "IBM Cloud Pak for Integration"`
+
+`oc get secret integration-admin-initial-temporary-credentials -n ibm-common-services -o jsonpath='{.data.password}' | base64 --decode`
 
