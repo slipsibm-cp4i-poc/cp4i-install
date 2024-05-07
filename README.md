@@ -8,6 +8,8 @@ oc login with proper credentials
 
 `oc apply -f 01b-rh-certmanager-sub.yaml`
 
+`oc get csv -n cert-manager-operator`
+
 `./02-cat-source.sh`
 
 `oc apply -f  03-foundationservices-sub.yaml`
@@ -20,10 +22,11 @@ oc login with proper credentials
 
 `oc apply -f  07-es-sub.yaml`
 
-`oc apply -f  08-license-sub.yaml`
+`oc apply -f  08-license-sub.yaml -n ibm-licensing` 
 
 `oc apply -f  09-mq-sub.yaml`
 
 `oc apply -f  10-auto-foundation-assets-sub.yaml`
 
 `oc apply -f  11-platformnavigatorui.yaml`
+
