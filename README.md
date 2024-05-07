@@ -2,6 +2,9 @@
 
 oc login with proper credentials
 
+download and install ibm-pak plugin
+
+
 `./00-create-namespaces.sh`
 
 `oc apply -f 01a-certmanager-opgroup.yaml`
