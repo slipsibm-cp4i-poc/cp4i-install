@@ -2,7 +2,7 @@
 
 oc login with proper credentials
 
-`./00-create-namespace.sh`
+`./00-create-namespaces.sh`
 
 `oc apply -f 01a-certmanager-opgroup.yaml`
 
