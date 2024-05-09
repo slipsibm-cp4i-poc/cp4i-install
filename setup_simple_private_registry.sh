@@ -4,9 +4,10 @@
 #############################################################################################
                  #Parameters that needs to be set before running the script#
 #############################################################################################
+export REGISTRY_PORT_NUMBER="5004"
 #Parameters for TLS Certificate usage.
  #This parameter is to be set in case you need to setup your registry with existing TLS CERT file.
-export REGISTRY_SETUP_WITH_EXISTING_TLS_CERTIFICATE="false"
+export REGISTRY_SETUP_WITH_EXISTING_TLS_CERTIFICATE="true"
  #Certificate key filename, if you have existing file you can provide the name here, else in case if you dont have one then the script creates one with self signed certificate key file
  #use this name if you dont have file of yours ex: '$HOSTNAME-$REGISTRY_PORT_NUMBER.key'
  #NOTE: If you provide your existing filename then you need to make sure it is present in the directory path as per the parameter 'CERTS_DIR' below
@@ -18,7 +19,7 @@ export REGISTRY_HTTP_TLS_CERTIFICATE_FILENAME="$HOSTNAME-$REGISTRY_PORT_NUMBER.c
 
 #Parameters for registry directory paths
  #Provide the registry directory ex : '/opt/test2_registry'.
-export registry_dir="/opt/test2_registry"
+export registry_dir="/opt/cp4i-demo-reg"
  #Provide the Auth directory where registry access crendentials file will be created by the script. ex : '$registry_dir/auth'
 export AUTH_DIR="$registry_dir/auth"
  #Provide the Certs directory which will be used to either generate self signed certificate, or where you have existing TLS certificate file. ex : '$registry_dir/certs'
@@ -29,15 +30,14 @@ export DATA_DIR="$registry_dir/data"
 
 #Parameters for registry credentials to access it.
  #Username for your registry to access it once it is created.
-export registry_username_to_be_created="test_user"
+export registry_username_to_be_created="slipsibm"
  #Password for your registry to access it once it is created.
-export registry_password_to_be_set="simplepassword"
+export registry_password_to_be_set="ibm4you"
 
 #Parameters for registry name and port number
  #Registry name that you want to setup
-export REGISTRY_NAME="registry123"
+export REGISTRY_NAME="cp4i-reg"
  #Port number for the the registry to be accessed later once it is created.
-export REGISTRY_PORT_NUMBER="5004"
 #############################################################################################
 
 #This is the auth file that gets created for your registry credentials. This is static and no need to change.
@@ -67,6 +67,7 @@ registry_password_setup(){
   htpasswd -bBc $AUTH_DIR/$auth_filename $registry_username_to_be_created $registry_password_to_be_set
 
 }
+
 
 setup_firewall_for_exposed_port(){
 

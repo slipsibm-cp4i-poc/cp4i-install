@@ -1,0 +1,35 @@
+kind: ImageSetConfiguration
+apiVersion: mirror.openshift.io/v1alpha2
+storageConfig:
+  registry:
+    imageURL: bastion.gym.lan:8443/mirror/oc-mirror-metadata
+    skipTLS: false
+mirror:
+  platform:
+    channels:
+    - name: stable-4.14
+      type: ocp
+  operators:
+  - catalog: registry.redhat.io/redhat/redhat-operator-index:v4.14
+    packages:
+    - name: serverless-operator
+      channels:
+      - name: stable
+    - name: odf-operator
+      channels:
+      - name: stable-4.14
+    - name: rhbk-operator
+      channels:
+      - name: stable-v24
+    - name: openshift-cert-manager-operator
+      channels:
+      - name: stable-v1      
+    - name: openshift-gitops-operator
+      channels:
+      - name: latest      
+    - name: openshift-pipelines-operator-rh
+      channels:
+      - name: latest    
+  additionalImages:
+  - name: registry.redhat.io/ubi8/ubi:latest
+  helm: {}
