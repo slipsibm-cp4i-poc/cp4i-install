@@ -23,6 +23,8 @@ add entitlement key to global pull secret
 
 `./02-cat-source.sh`
 
+Note that it is normal that you may see an error in the apply's.
+
 `oc apply -f  03-foundationservices-sub.yaml`
 
 `oc apply -f  04-ibm-integration-platform-navigator-sub.yaml`
