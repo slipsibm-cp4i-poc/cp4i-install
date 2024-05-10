@@ -1,4 +1,6 @@
 # CP4I Install Notes
+## Intro
+This assumes you have already setup a mirror for Openshift and that the global pull secret and addtional trust bundle are already set in the OCP cluster so that OCP can access your local registry. 
 
 oc login with proper credentials
 
