@@ -1,4 +1,8 @@
 # CP4I Install Notes
+## Intro
+For CP4I 2023.4.1
+
+These instructions and yaml are just helpers. Make sure you consult the install docs to ensure you understand the steps and that nothing has changed.
 
 oc login with proper credentials
 
