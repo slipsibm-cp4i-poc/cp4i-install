@@ -20,7 +20,11 @@ get entitlement and log in to cp.icr.io with entitlement-key user=cp , password=
 
 `oc get csv -n cert-manager-operator`
 
-`./02-mirror-airgap.sh`
+Step 02-mirror-airgap.sh will mirror the images, apply imagesourcepolicies and catalogsources
+
+`./02-mirror-airgap.sh` 
+
+`oc get catalogsource -n openshift-marketplace`
 
 `oc apply -f  03-foundationservices-sub.yaml`
 
