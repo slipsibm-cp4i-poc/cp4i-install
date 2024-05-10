@@ -4,10 +4,13 @@ oc login with proper credentials
 
 download and install ibm-pak plugin
 
-go into 02-cat-source.sh and make sure arch is set properly
+go into 02-mirror-airgap.sh and make sure arch is set properly
 
 
-add entitlement key to global pull secret
+
+get entitlement and log in to cp.icr.io with entitlement-key user=cp , password=<entitlement-key>
+
+`podman login cp.icr.io`
 
 `./00-create-namespaces.sh`
 
@@ -17,7 +20,7 @@ add entitlement key to global pull secret
 
 `oc get csv -n cert-manager-operator`
 
-`./02-cat-source.sh`
+`./02-mirror-airgap.sh`
 
 `oc apply -f  03-foundationservices-sub.yaml`
 
