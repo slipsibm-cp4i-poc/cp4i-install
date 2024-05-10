@@ -12,9 +12,6 @@ mirror:
   operators:
   - catalog: registry.redhat.io/redhat/redhat-operator-index:v4.14
     packages:
-    - name: serverless-operator
-      channels:
-      - name: stable
     - name: odf-operator
       channels:
       - name: stable-4.14
