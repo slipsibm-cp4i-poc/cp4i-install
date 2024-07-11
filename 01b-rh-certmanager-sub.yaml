@@ -9,4 +9,4 @@ spec:
   source: redhat-operators
   sourceNamespace: openshift-marketplace
   installPlanApproval: Automatic
-  startingCSV: cert-manager-operator.v1.13.0
+  startingCSV: cert-manager-operator.v1.14.0
