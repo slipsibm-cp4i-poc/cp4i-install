@@ -5,7 +5,7 @@ metadata:
   labels:
     backup.integration.ibm.com/component: subscription        
 spec:
-  channel: v1.6
+  channel: v1.7-sc2
   name: ibm-integration-asset-repository
   source: ibm-integration-asset-repository-catalog
   sourceNamespace: openshift-marketplace

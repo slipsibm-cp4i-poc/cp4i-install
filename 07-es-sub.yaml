@@ -5,7 +5,7 @@ metadata:
   labels:
     backup.integration.ibm.com/component: subscription        
 spec:
-  channel: v3.3
+  channel: v3.4
   name: ibm-eventstreams
   source: ibm-eventstreams
   sourceNamespace: openshift-marketplace

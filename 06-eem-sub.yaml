@@ -5,7 +5,7 @@ metadata:
   labels:
     backup.integration.ibm.com/component: subscription        
 spec:
-  channel: v11.1
+  channel: v11.2
   name: ibm-eventendpointmanagement
   source: ibm-eventendpointmanagement-catalog
   sourceNamespace: openshift-marketplace
