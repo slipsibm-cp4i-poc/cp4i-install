@@ -1,0 +1,172 @@
+apiVersion: machine.openshift.io/v1beta1
+kind: MachineSet
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: >
+      {"apiVersion":"machine.openshift.io/v1beta1","kind":"MachineSet","metadata":{"annotations":{},"creationTimestamp":null,"labels":{"machine.openshift.io/cluster-api-cluster":"hub-qhzkx"},"name":"hub-qhzkx-infra","namespace":"openshift-machine-api"},"spec":{"replicas":3,"selector":{"matchLabels":{"machine.openshift.io/cluster-api-cluster":"hub-qhzkx","machine.openshift.io/cluster-api-machineset":"hub-qhzkx-infra"}},"template":{"metadata":{"creationTimestamp":null,"labels":{"machine.openshift.io/cluster-api-cluster":"hub-qhzkx","machine.openshift.io/cluster-api-machine-role":"infra","machine.openshift.io/cluster-api-machine-type":"infra","machine.openshift.io/cluster-api-machineset":"hub-qhzkx-infra"}},"spec":{"metadata":{"creationTimestamp":null,"labels":{"cluster.ocs.openshift.io/openshift-storage":"","node-role.kubernetes.io/infra":""}},"providerSpec":{"value":{"apiVersion":"vsphereprovider.openshift.io/v1beta1","credentialsSecret":{"name":"vsphere-cloud-credentials"},"diskGiB":1000,"kind":"VSphereMachineProviderSpec","memoryMiB":65536,"metadata":{"creationTimestamp":null},"network":{"devices":[{"networkName":"gym-060000gtqm-rnq5aonp-segment"}]},"numCPUs":16,"numCoresPerSocket":1,"snapshot":"","template":"hub-qhzkx-rhcos","userDataSecret":{"name":"worker-user-data"},"workspace":{"datacenter":"IBMCloud","datastore":"gym-060000gtqm-rnq5aonp-storage","folder":"/IBMCloud/vm/ocp-gym/gym-060000gtqm-rnq5aonp","resourcepool":"/IBMCloud/host/ocp-gym/Resources/Cluster
+      Resource Pool/Gym Member Resource
+      Pool/gym-060000gtqm-rnq5aonp","server":"ocpgym-vc.techzone.ibm.local"}}},"taints":[{"effect":"NoSchedule","key":"node.ocs.openshift.io/storage","value":"true"}]}}}}
+    machine.openshift.io/memoryMb: '65536'
+    machine.openshift.io/vCPU: '16'
+  resourceVersion: '512862'
+  name: hub-qhzkx-infra
+  uid: e085484f-58db-4211-ab72-a68b5b9052c6
+  creationTimestamp: '2023-10-30T11:13:50Z'
+  generation: 3
+  managedFields:
+    - apiVersion: machine.openshift.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:spec':
+          'f:template':
+            'f:spec':
+              'f:providerSpec':
+                'f:value':
+                  'f:workspace':
+                    'f:resourcepool': {}
+      manager: kubectl-client-side-apply
+      operation: Update
+      time: '2023-10-25T20:04:13Z'
+    - apiVersion: machine.openshift.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:kubectl.kubernetes.io/last-applied-configuration': {}
+            'f:machine.openshift.io/memoryMb': {}
+            'f:machine.openshift.io/vCPU': {}
+          'f:labels':
+            .: {}
+            'f:machine.openshift.io/cluster-api-cluster': {}
+        'f:spec':
+          .: {}
+          'f:replicas': {}
+          'f:selector': {}
+          'f:template':
+            .: {}
+            'f:metadata':
+              .: {}
+              'f:labels':
+                .: {}
+                'f:machine.openshift.io/cluster-api-cluster': {}
+                'f:machine.openshift.io/cluster-api-machine-role': {}
+                'f:machine.openshift.io/cluster-api-machine-type': {}
+                'f:machine.openshift.io/cluster-api-machineset': {}
+            'f:spec':
+              .: {}
+              'f:lifecycleHooks': {}
+              'f:metadata':
+                .: {}
+                'f:labels':
+                  .: {}
+                  'f:cluster.ocs.openshift.io/openshift-storage': {}
+                  'f:node-role.kubernetes.io/infra': {}
+              'f:providerSpec':
+                .: {}
+                'f:value':
+                  'f:workspace':
+                    .: {}
+                    'f:datacenter': {}
+                    'f:datastore': {}
+                    'f:folder': {}
+                    'f:resourcePool': {}
+                    'f:server': {}
+                  'f:metadata':
+                    .: {}
+                    'f:creationTimestamp': {}
+                  'f:kind': {}
+                  .: {}
+                  'f:template': {}
+                  'f:numCoresPerSocket': {}
+                  'f:diskGiB': {}
+                  'f:memoryMiB': {}
+                  'f:apiVersion': {}
+                  'f:snapshot': {}
+                  'f:credentialsSecret':
+                    .: {}
+                    'f:name': {}
+                  'f:userDataSecret':
+                    .: {}
+                    'f:name': {}
+                  'f:network':
+                    .: {}
+                    'f:devices': {}
+                  'f:numCPUs': {}
+              'f:taints': {}
+      manager: Mozilla
+      operation: Update
+      time: '2023-10-30T11:29:52Z'
+    - apiVersion: machine.openshift.io/v1beta1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          .: {}
+          'f:availableReplicas': {}
+          'f:fullyLabeledReplicas': {}
+          'f:observedGeneration': {}
+          'f:readyReplicas': {}
+          'f:replicas': {}
+      manager: machineset-controller
+      operation: Update
+      subresource: status
+      time: '2023-10-30T12:44:48Z'
+  namespace: openshift-machine-api
+  labels:
+    machine.openshift.io/cluster-api-cluster: hub-qhzkx
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      machine.openshift.io/cluster-api-cluster: hub-qhzkx
+      machine.openshift.io/cluster-api-machineset: hub-qhzkx-infra
+  template:
+    metadata:
+      labels:
+        machine.openshift.io/cluster-api-cluster: hub-qhzkx
+        machine.openshift.io/cluster-api-machine-role: infra
+        machine.openshift.io/cluster-api-machine-type: infra
+        machine.openshift.io/cluster-api-machineset: hub-qhzkx-infra
+    spec:
+      lifecycleHooks: {}
+      metadata:
+        labels:
+          cluster.ocs.openshift.io/openshift-storage: ''
+          node-role.kubernetes.io/infra: ''
+      providerSpec:
+        value:
+          numCoresPerSocket: 1
+          diskGiB: 1024
+          snapshot: ''
+          userDataSecret:
+            name: worker-user-data
+          memoryMiB: 65536
+          credentialsSecret:
+            name: vsphere-cloud-credentials
+          network:
+            devices:
+              - networkName: gym-060000gtqm-rnq5aonp-segment
+          metadata:
+            creationTimestamp: null
+          numCPUs: 16
+          kind: VSphereMachineProviderSpec
+          workspace:
+            datacenter: IBMCloud
+            datastore: gym-060000gtqm-rnq5aonp-storage
+            folder: /IBMCloud/vm/ocp-gym/gym-060000gtqm-rnq5aonp
+            resourcePool: >-
+              /IBMCloud/host/ocp-gym/Resources/Cluster Resource Pool/Gym Member
+              Resource Pool/gym-060000gtqm-rnq5aonp
+            server: ocpgym-vc.techzone.ibm.local
+          template: hub-r67rq-rhcos-generated-region-generated-zone
+          apiVersion: vsphereprovider.openshift.io/v1beta1
+      taints:
+        - effect: NoSchedule
+          key: node.ocs.openshift.io/storage
+          value: 'true'
+status:
+  availableReplicas: 3
+  fullyLabeledReplicas: 3
+  observedGeneration: 3
+  readyReplicas: 3
+  replicas: 3
