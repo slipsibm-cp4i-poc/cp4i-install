@@ -12,21 +12,32 @@ mirror:
   operators:
   - catalog: registry.redhat.io/redhat/redhat-operator-index:v4.14
     packages:
+    - name: serverless-operator                                     
+      channels:
+      - name: stable                                                
+    - name: rhods-operator                                    
+      channels:
+      - name: fast                                                
     - name: odf-operator
       channels:
       - name: stable-4.14
-    - name: rhbk-operator
+    - name: nfd
       channels:
-      - name: stable-v24
+      - name: stable          
     - name: openshift-cert-manager-operator
       channels:
-      - name: stable-v1      
+      - name: stable-v1          
     - name: openshift-gitops-operator
       channels:
-      - name: latest      
-    - name: openshift-pipelines-operator-rh
+      - name: latest
+    - name: rhbk-operator
       channels:
-      - name: latest    
+      - name: stable-v24          
+  - catalog: registry.redhat.io/redhat/certified-operator-index:v4.14
+    packages:
+    - name: gpu-operator-certified
+      channels:
+      - name: stable    
   additionalImages:
   - name: registry.redhat.io/ubi8/ubi:latest
   helm: {}
