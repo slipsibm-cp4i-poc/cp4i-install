@@ -1,6 +1,6 @@
 # CP4I Install Notes
 ## Intro
-For CP4I 2023.4.1
+Updated For CP4I 16.1.0
 
 These instructions and yaml are just helpers. Make sure you consult the install docs to ensure you understand the steps and that nothing has changed.
 
@@ -8,7 +8,7 @@ oc login with proper credentials
 
 download and install ibm-pak plugin
 
-go into 02-cat-source.sh and make sure arch is set properly
+go into 02-cat-source.sh and make sure arch is set properly and that all the Operator Version Levels are all correct for the Cloud Pak version and Release you are installing.
 
 
 add entitlement key to global pull secret
