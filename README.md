@@ -36,7 +36,7 @@ Note that it is normal that you may see an error in the apply's.
 
 `oc apply -f  07-es-sub.yaml`
 
-`oc apply -f  08-license-sub.yaml -n ibm-licensing` 
+`oc apply -f  08-license-sub.yaml -n ibm-licensing`
 
 `oc apply -f  09-mq-sub.yaml`
 
