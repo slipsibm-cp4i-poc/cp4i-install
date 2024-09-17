@@ -4,19 +4,22 @@ metadata:
   name: hnb-es-argo
   namespace: openshift-gitops
   annotations:
-    argocd.argoproj.io/sync-wave: "100"
+    argocd.argoproj.io/sync-wave: '100'
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
+    name: ''
     namespace: cp4i-demo
-    server: https://kubernetes.default.svc
-  project: default
+    server: 'https://kubernetes.default.svc'
   source:
     path: argo
-    repoURL: https://github.ibm.com/stu-lipshires/es-gitops-for-stu-ben.git
+    repoURL: 'https://github.ibm.com/stu-lipshires/es-gitops-for-stu-ben.git'
     targetRevision: main
-    recurse: true
+    directory:
+      recurse: true
+  sources: []
+  project: default
   syncPolicy:
     automated:
       prune: true
