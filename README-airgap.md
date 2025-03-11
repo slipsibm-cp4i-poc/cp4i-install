@@ -18,6 +18,8 @@ get entitlement and log in to cp.icr.io with entitlement-key user=cp , password=
 
 `podman login cp.icr.io`
 
+`podman login to your mirror registry`
+
 `./00-create-namespaces.sh`
 
 `oc apply -f 01a-certmanager-opgroup.yaml`
