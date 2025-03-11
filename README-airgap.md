@@ -1,6 +1,6 @@
 # CP4I Install Notes
 ## Intro
-For CP4I 2023.4.1
+For CP4I 16.1.1
 
 This assumes you have already setup a mirror for Openshift and that the global pull secret and addtional trust bundle are already set in the OCP cluster so that OCP can access your local registry. 
 These instructions and yaml are just helpers. Make sure you consult the install docs to ensure you understand the steps and that nothing has changed.
