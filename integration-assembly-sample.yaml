@@ -1,0 +1,63 @@
+cat <<EOF | oc create -f -
+apiVersion: integration.ibm.com/v1beta1
+kind: IntegrationAssembly
+metadata:
+  name: ia-canvas
+  labels:
+    backup.integration.ibm.com/component: integrationassembly
+  namespace: cp4i-demo
+spec:
+  license:
+    accept: true
+    license: L-JTPV-KYG8TF
+    use: CloudPakForIntegrationNonProduction
+  version: 16.1.0
+  managedInstances:
+    list:
+      - kind: EventStreams
+        metadata:
+          name: es1
+          namespace: cp4i-demo
+        spec:
+          license:
+            accept: true
+            license: L-JTPV-KYG8TF
+            use: CloudPakForIntegrationNonProduction
+          version: latest
+          strimziOverrides:
+            kafka:
+              replicas: 1
+              storage:
+                type: persistent-claim
+                class: ocs-storagecluster-ceph-rbd
+                size: 10Gi
+            zookeeper:
+              storage:
+                type: persistent-claim
+                class: ocs-storagecluster-ceph-rbd
+                size: 10Gi
+      - kind: QueueManager
+        metadata:
+          name: qm1
+          namespace: cp4i-demo
+        spec:
+          license:
+            accept: true
+            license: L-JTPV-KYG8TF
+          queueManager:
+            availability:
+              type: NativeHA
+            storage:
+              defaultClass: ocs-storagecluster-ceph-rbd
+              queueManager:
+                type: persistent-claim
+          telemetry:
+            tracing:
+              instana:
+                enabled: true
+          web:
+            enabled: true
+  managedIntegrations:
+    list: []
+
+EOF
