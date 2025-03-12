@@ -12,7 +12,7 @@ download and install ibm-pak plugin
 
 go into 02-mirror-airgap.sh and make sure arch is set properly
 
-
+go into 10-create-namespaces.sh and set the namespace you want to install into. It is currently set to cp4i-demo.
 
 get entitlement and log in to cp.icr.io with entitlement-key user=cp , password=<entitlement-key>
 
@@ -20,20 +20,39 @@ get entitlement and log in to cp.icr.io with entitlement-key user=cp , password=
 
 `podman login to your mirror registry`
 
-`./00-create-namespaces.sh`
 
-`oc apply -f 01a-certmanager-opgroup.yaml`
-
-`oc apply -f 01b-rh-certmanager-sub.yaml`
-
-`oc get csv -n cert-manager-operator`
-
-Step 02-mirror-airgap.sh will mirror the images, apply imagesourcepolicies and catalogsources. Note that it is normal that you may see an error in the apply's. 
+Step 02-mirror-airgap.sh will mirror the images, apply imagesourcepolicies and catalogsources.  
 
 
 `./02-mirror-airgap.sh` 
 
+Use your Red Hat credentials to login to redhat.registry.io 
+
+`podman login registry.redhat.io`
+
+Edit imageset-config.yaml to point to your mirror registry and adjust skiptls flags
+
+`oc mirror  --config=./imageset-config.yaml docker://bastion.gym.lan:8443 --skip-pruning --dest-skip-tls`
+
+Go to oc-mirror-workspace/results-xxxxxx and examine the catalog source and image source policy files. Determine if the catalog source for the Operator Index is already set to your mirror repository. Examine the ImageContentSourcePolicy and make sure the name provided is unique. The default name generated is "generic-0". Then apply the catalog sourcec if necessary and then the imagecontentsourcepolicy 
+
+`oc apply -f ~/oc-mirror-workspace/results-xxxxxxx/imageContentSourcePolicy.yaml`
+
+verify that the catalog sources you created above are present 
+
 `oc get catalogsource -n openshift-marketplace`
+
+If you are installing to a namespace, look at 02b-cp4iopgroup.yaml and make sure the name space is set to the namespace you want to install to and then run
+
+`./10-create-namespaces.sh`
+
+`oc apply -f 02b-cp4iopgroup.yaml`
+
+`oc apply -f 11a-certmanager-opgroup.yaml`
+
+`oc apply -f 11b-rh-certmanager-sub.yaml`
+
+`oc get csv -n cert-manager-operator`
 
 `oc apply -f  03-foundationservices-sub.yaml`
 
