@@ -3,7 +3,7 @@ apiVersion: mirror.openshift.io/v1alpha2
 storageConfig:
   registry:
     imageURL: bastion.gym.lan:8443/mirror/oc-mirror-metadata
-    skipTLS: false
+    skipTLS: true
 mirror:
   operators:
   - catalog: registry.redhat.io/redhat/redhat-operator-index:v4.16
