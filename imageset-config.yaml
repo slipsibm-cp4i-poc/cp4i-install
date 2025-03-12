@@ -11,9 +11,9 @@ mirror:
     - name: rhbk-operator
       channels:
       - name: stable-v24          
-    - name: cert-manager
+    - name: openshift-cert-manager-operator
       channels:
-      - name: stable-v1.15               
+      - name: stable-v1               
   additionalImages:
   - name: registry.redhat.io/ubi8/ubi:latest
   helm: {}
