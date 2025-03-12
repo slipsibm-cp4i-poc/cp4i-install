@@ -1,0 +1,134 @@
+CASE repository: IBM Cloud-Pak Github Repo (https://github.com/IBM/cloud-pak/raw/master/repo/case/)
+Downloading and extracting the CASE ...
+- Success
+Retrieving CASE version ...
+- Success
+Validating the CASE spec version ...
+- Success
+Validating the CASE signature ...
+Validating the signature for the ibm-integration-platform-navigator CASE...
+- Success
+Creating inventory ...
+- Success
+Finding inventory items
+- Success
+Resolving inventory items ...
+Parsing inventory items
+Resolve dependencies has been set to false, no dependent CASEs will be resolved.
+- Success
+Validating the CASE ...
+[review] - Validation review found in inventory/platformNavigatorOperator/resources.yaml: image cpopen/ibm-cpd-cloud-native-postgresql-operator-catalog has "catalog" in its image name with no catalog information in its metadata
+- Success
+Download of CASE: ibm-integration-platform-navigator, version: 8.0.1 is complete
+
+Generating ComponentSetConfig of CASE: ibm-integration-platform-navigator, version: 8.0.1 to /home/admin/.ibm-pak/data/cases/ibm-integration-platform-navigator/8.0.1/component-set-config.yaml is complete
+Generating mirror manifests of CASE: ibm-integration-platform-navigator, version: 8.0.1 is complete
+
+
+
+Next steps
+
+- To mirror the images:
+
+ oc image mirror -f /home/admin/.ibm-pak/data/mirror/ibm-integration-platform-navigator/8.0.1/images-mapping.txt --filter-by-os '.*' -a $REGISTRY_AUTH_FILE --insecure --skip-multiple-scopes --max-per-registry=1
+
+sha256:13c7959923c116aebea7e60ba5d07ae4cbe0bc261baf565cfc8a5f6d64a83cd3 bastion.gym.lan:8443/cp4i-demo/cpopen/ibm-cpd-cloud-native-postgresql-operator
+sha256:5936b697f5399fb061b23f9a76eedf9bc1df1523b5fa4cc050d52d56ae40a59d bastion.gym.lan:8443/cp4i-demo/cpopen/ibm-cpd-cloud-native-postgresql-operator
+sha256:2fa9c6c4f0b5d86cc0ecd41523bb3e7568e280575a26dc59474c92fbb60d3ff9 bastion.gym.lan:8443/cp4i-demo/cpopen/ibm-cpd-cloud-native-postgresql-operator
+sha256:bcf43a0787db6434d12c42fc72d4b399faf012a6357d5baa26218cb4099eb480 bastion.gym.lan:8443/cp4i-demo/cpopen/ibm-cpd-cloud-native-postgresql-operator
+sha256:d3d3bd4ddf4f6a0fb627e2facea2797de342246fa2dc90ef380f31ce4bb84c79 bastion.gym.lan:8443/cp4i-demo/cpopen/ibm-integration-platform-navigator-catalog
+sha256:e404b9dfb92a0d7cd879ba2b41cd0bd138bdfcd6ba8f9e24edec6bc5a301edd1 bastion.gym.lan:8443/cp4i-demo/cpopen/ibm-integration-platform-navigator-catalog
+sha256:867b59c94637028c37b352d367de137f2481491c5bace72a85764c4b39840ba9 bastion.gym.lan:8443/cp4i-demo/cpopen/ibm-integration-platform-navigator-catalog
+sha256:0ba25250d77db8893357dfde31d2526c6fe3d8f6c0b125c00fa6689466186c8a bastion.gym.lan:8443/cp4i-demo/cp/cpd/edb-postgres-license-provider
+sha256:7f3ad72e23c70cb879a56b16b08b201291fbd0b7423f26012bc23bd267caefa6 bastion.gym.lan:8443/cp4i-demo/cp/cpd/edb-postgres-license-provider
+sha256:4d4a2c607260eb9d5a254115f7bb00b96c99e1545c92e43b4c47e1c3906ac7e8 bastion.gym.lan:8443/cp4i-demo/cp/cpd/edb-postgres-license-provider
+sha256:3b91e1543463edeb4e13e362518c28b3c22335b9e663300f5a4d00e266d6ceb8 bastion.gym.lan:8443/cp4i-demo/cp/cpd/edb-postgres-license-provider
+sha256:26979d3a864e26777ac4d31aaed541eeb56f788c45aab33cc39a13bf9440ec2e bastion.gym.lan:8443/cp4i-demo/cpopen/ibm-integration-platform-navigator-operator-bundle
+sha256:6cde6416a8e7de2644592c6eaec2327443c4c9b109fbfd89b5aafc0facf88df5 bastion.gym.lan:8443/cp4i-demo/cpopen/ibm-integration-platform-navigator-operator-bundle
+sha256:c6452067ac9286f6f4c3082b39a5e01375e57a3aacd74a0d274ab18cd118f1f9 bastion.gym.lan:8443/cp4i-demo/cpopen/ibm-integration-platform-navigator-operator-bundle
+sha256:b1926568ec3b8337943303750ce5fa08c0d40337aa6e673b7d2d64fbdbad0470 bastion.gym.lan:8443/cp4i-demo/cpopen/ibm-integration-platform-navigator-operator-bundle
+sha256:111a5b4c058cc471f94f16ed85d1c6363b5ef51901abdd5400455be001c9b72a bastion.gym.lan:8443/cp4i-demo/cpopen/ibm-integration-platform-navigator-operator-bundle
+sha256:cf276758f91254d3059b153089251cb9a3afb735c1fd1d27d68d4ed59b6c8d79 bastion.gym.lan:8443/cp4i-demo/cpopen/ibm-integration-platform-navigator-operator-bundle
+sha256:ba77afed86e4bf66991c7d5de90b06f52eaab8bbd29c80790f134c61a6e6e6f6 bastion.gym.lan:8443/cp4i-demo/cpopen/ibm-cpd-cloud-native-postgresql-operator:1.22.8
+sha256:364592f363748cfefc66d3720987ca99cd4aef98d11b98b57201f1288e2908e8 bastion.gym.lan:8443/cp4i-demo/cpopen/ibm-integration-platform-navigator-catalog:8.0.1-2025-01-23-1329-25052796
+sha256:379e2fe27d530cd9d74abdc2931c15cc3b0e0c2f4ed6f436b1de3fbdbc63ff0d bastion.gym.lan:8443/cp4i-demo/cp/cpd/edb-postgres-license-provider:2189
+sha256:2d5e29acdddfe08f81f9bae60422cd21106a88806b274c9124ee7790cd8ec23b bastion.gym.lan:8443/cp4i-demo/cpopen/ibm-integration-platform-navigator-operator-bundle:8.0.1-2025-01-23-1329-25052796
+sha256:7754b32dd279606f82cf647bc1b2d842ae8aaafcae6e431d16816d68796e224e bastion.gym.lan:8443/cp4i-demo/cpopen/ibm-integration-platform-navigator-operator-bundle:7.3.9-2025-01-23-1111-4c3843c7-service-v16.1.0
+sha256:2342c2aa6e295596e00c07f7f6312c8ba1e3af18676a0ef156486b3daaebe53d bastion.gym.lan:8443/cp4i-demo/cpopen/ibm-cpd-cloud-native-postgresql-operator-catalog
+sha256:51f9906588ee7f838224031fb563cc2b97d284dedf44d1ee75e9d64fa086b5f0 bastion.gym.lan:8443/cp4i-demo/cpopen/ibm-cpd-cloud-native-postgresql-operator-catalog
+sha256:1f8d6b96310012406f086f737ec7ed781b32b0e870c5d516fbb97e471b7b3d13 bastion.gym.lan:8443/cp4i-demo/cpopen/ibm-cpd-cloud-native-postgresql-operator-catalog
+sha256:2a336b15b72f327471e26fe2fc477ff8bc4f5b454653d20387098bc59c950df3 bastion.gym.lan:8443/cp4i-demo/cpopen/ibm-cpd-cloud-native-postgresql-operator-catalog
+sha256:46c75d36e288f9ce2168cc84480b0c00b36d863b79c267b844e4797eb4fc76f0 bastion.gym.lan:8443/cp4i-demo/cpopen/ibm-integration-platform-navigator-operator
+sha256:0a1ed70535edfad2c7f1d65427ecb6dc67f5c5e11e078fc8794ebbb8d4d7afac bastion.gym.lan:8443/cp4i-demo/cpopen/ibm-integration-platform-navigator-operator
+sha256:5a59bce8e39a0ff87d2899514a515c54d845eeae49ed2c6d9b1a5902246e933b bastion.gym.lan:8443/cp4i-demo/cpopen/ibm-integration-platform-navigator-operator
+sha256:14f23bd123497e89d23db0829c47f02c6fe602d17a00e906d874208fd45eb16a bastion.gym.lan:8443/cp4i-demo/cpopen/ibm-integration-platform-navigator-operator
+sha256:035c80cfdfb82bf24173cdca53ec0714a494e51678577ad3302aca1aed61bdf6 bastion.gym.lan:8443/cp4i-demo/cpopen/ibm-integration-platform-navigator-operator
+sha256:7f3c14776ff2c16ff4c6f224cefa66fc6b24ec93dce62873959051d1d6384300 bastion.gym.lan:8443/cp4i-demo/cpopen/ibm-integration-platform-navigator-operator
+sha256:12826f8420b19874abd4f154050f201823bf0f413d8c938f96b59cffc67c85a3 bastion.gym.lan:8443/cp4i-demo/cpopen/edb/postgresql
+sha256:43b42936d3e44ef51f1abd6ed253b83f8e648cb746b378104d01bb74f85a6d68 bastion.gym.lan:8443/cp4i-demo/cpopen/edb/postgresql
+sha256:a0e34083903e660554a6ce24d7791839196b42de8487c4407d45fcb6af636c54 bastion.gym.lan:8443/cp4i-demo/cpopen/edb/postgresql
+sha256:5f860116609fc5c8d268fdb3e15427bef422e95c61061b5bd15dac85da6e16eb bastion.gym.lan:8443/cp4i-demo/cpopen/edb/postgresql
+sha256:d3893d03a5200365642d1df0953612abdf6a6e1dc3a0479c225971e411e39a0e bastion.gym.lan:8443/cp4i-demo/cp/icp4i/icip-services
+sha256:dfd59dadc1153364497aadae9e570ff5b23cc3a0baa5566cb3752fda769616e0 bastion.gym.lan:8443/cp4i-demo/cp/icp4i/icip-services
+sha256:3e1b9dda6bf2a960ce7b1ada0f1fe5dcd2e4e291b6ef1edf6887719edbe7f212 bastion.gym.lan:8443/cp4i-demo/cp/icp4i/icip-services
+sha256:22d78dab854dfa9a5d8550090489c9bc433a846ea6ea2a621966b790337d1512 bastion.gym.lan:8443/cp4i-demo/cp/icp4i/icip-services
+sha256:7837ff0efe06a6169cb5a461cdd3bde375e78b56e0e97db302469d33a1fd5ba6 bastion.gym.lan:8443/cp4i-demo/cp/icp4i/icip-services
+sha256:051d617724d99086a2e985c282d30dbed2848385aa56dd2468e02149722e10f3 bastion.gym.lan:8443/cp4i-demo/cp/icp4i/icip-services
+sha256:28393c86bc194f2fa73618599d00424bac3c1aebd089ca96f0c84106ba8fbc61 bastion.gym.lan:8443/cp4i-demo/cpopen/ibm-cpd-cloud-native-postgresql-operator-catalog:2219
+sha256:22f2a25e75cf9d5db33c140ac9ce6d96a49cc740da50e12618174764f7d0ade2 bastion.gym.lan:8443/cp4i-demo/cpopen/ibm-integration-platform-navigator-operator:8.0.1-2025-01-23-1329-25052796
+sha256:a3c84dfe3c7eff94c627d68748edd51084150382f0fffd1ece5cd5622eb716b8 bastion.gym.lan:8443/cp4i-demo/cpopen/ibm-integration-platform-navigator-operator:7.3.9-2025-01-23-1111-4c3843c7-service-v16.1.0
+sha256:b857cfedbca28f2e17feb48b3809d29691be5eeb6d0838d8f80df402c5b018eb bastion.gym.lan:8443/cp4i-demo/cpopen/edb/postgresql:14.13
+sha256:0453bc101c258fbc0bed5f563d05de3c45837a43bb6cd9cb522a4d2e8a1722a8 bastion.gym.lan:8443/cp4i-demo/cp/icp4i/icip-services:2025-01-17-1555-0fc32fe1
+sha256:72ddbc040ef677bbe5da63416e34563906fc80b65583a7b80b340a09d624aff9 bastion.gym.lan:8443/cp4i-demo/cp/icp4i/icip-services:2024-04-23-0832-40249b2e
+sha256:4cf395f74ccce1b75de76db65047550198bcfdcd94e93719c26e94c49c300107 bastion.gym.lan:8443/cp4i-demo/cpopen/ibm-integration-upgrade-must-gather
+sha256:9fcc849b23059718e1fe82d6238835710db87c3ce5449d5200ccf27b2dfe0855 bastion.gym.lan:8443/cp4i-demo/cpopen/ibm-integration-upgrade-must-gather
+sha256:2de610b1d782d9d363e1aee968290e58373a0f8a1e08b513535ef9578bb022b8 bastion.gym.lan:8443/cp4i-demo/cpopen/ibm-integration-upgrade-must-gather
+sha256:f61d852a1a1285cc72f5114372e84cf4319fcd08cb10e2783b93c1ca8eb1d9e8 bastion.gym.lan:8443/cp4i-demo/cpopen/ibm-integration-upgrade-must-gather
+sha256:c1db6761a754ad6c8c51a42b44315a99e1336b3e1a6667c6fb28b3da3abe60d0 bastion.gym.lan:8443/cp4i-demo/cpopen/ibm-integration-upgrade-must-gather
+sha256:96bb0475281fe3dc0f492ea619fa08ee58ee0ca85db1597d06645ae5c7065863 bastion.gym.lan:8443/cp4i-demo/cpopen/ibm-integration-upgrade-must-gather
+sha256:898f2c3dcc48292eeeae65594e089c4b4cdfe84d64c7775dd9504da982987c5f bastion.gym.lan:8443/cp4i-demo/cpopen/ibm-cpd-cloud-native-postgresql-operator-bundle:2219
+sha256:3a0e897e53e0d7f95a78225f4ca4cdf923291266188cb3f9050393d383346ec1 bastion.gym.lan:8443/cp4i-demo/cp/icp4i/icip-navigator
+sha256:bc220fc9087a5a2ae70fe224c9eca89680898db9f7476af38a58b1d0c51e2b66 bastion.gym.lan:8443/cp4i-demo/cp/icp4i/icip-navigator
+sha256:09ebb87e8c83fa59169db4cb90f51dcc12dd46e4c48c95ad037d2848bce1b94d bastion.gym.lan:8443/cp4i-demo/cp/icp4i/icip-navigator
+sha256:56135bb67778ab65b370c1310b84f5deae4c8a06132ec1d07db24df3e888de8c bastion.gym.lan:8443/cp4i-demo/cp/icp4i/icip-navigator
+sha256:6bd967ed8f11bfafcf06978523bc915dcf465e99d58822d4c74041d4ec8b4d69 bastion.gym.lan:8443/cp4i-demo/cp/icp4i/icip-navigator
+sha256:53d40c2b28e3b5b3aefb935d7a7b3ca54f0bd974b47dea2dc49e8b5f3a308336 bastion.gym.lan:8443/cp4i-demo/cp/icp4i/icip-navigator
+sha256:a8fa7092cbe81416c617596f27f9c10b0cdee0027a555d075751b56e413bc53d bastion.gym.lan:8443/cp4i-demo/cpopen/ibm-integration-upgrade-must-gather:2024-04-15-1443-4a3fc7dc
+sha256:e3536c1ca6e116b375af9f991730649125c5c6ec02213792c23e8e80e666f48e bastion.gym.lan:8443/cp4i-demo/cpopen/ibm-integration-upgrade-must-gather:2025-01-23-1052-af5629e7
+sha256:660025edb850b0b2e14b90ae52ed3e7d45ae5d436207d6092c7b6aeae49f2a43 bastion.gym.lan:8443/cp4i-demo/cp/icp4i/icip-navigator:2024-04-23-1118-7b530fad
+sha256:d52bc5294a841dbc3ad597f99ef365632195bd6dd96fd2e2ab4d5e185de17155 bastion.gym.lan:8443/cp4i-demo/cp/icp4i/icip-navigator:2025-01-16-1441-381fd1af
+CASE repository: IBM Cloud-Pak Github Repo (https://github.com/IBM/cloud-pak/raw/master/repo/case/)
+Downloading and extracting the CASE ...
+- Success
+Retrieving CASE version ...
+- Success
+Validating the CASE spec version ...
+- Success
+Validating the CASE signature ...
+Validating the signature for the ibm-apiconnect CASE...
+- Success
+Creating inventory ...
+- Success
+Finding inventory items
+- Success
+Resolving inventory items ...
+Parsing inventory items
+Resolve dependencies has been set to false, no dependent CASEs will be resolved.
+- Success
+Validating the CASE ...
+[review] - Validation review found in inventory/apiconnectOperatorSetup/resources.yaml: image cp/apic/ibm-apiconnect-management-consumer-catalog has "catalog" in its image name with no catalog information in its metadata
+[review] - Validation review found in inventory/apiconnectOperatorSetup/resources.yaml: image cp/apic/ibm-apiconnect-management-consumer-catalog has "catalog" in its image name with no catalog information in its metadata
+- Success
+Download of CASE: ibm-apiconnect, version: 6.0.0 is complete
+
+Generating ComponentSetConfig of CASE: ibm-apiconnect, version: 6.0.0 to /home/admin/.ibm-pak/data/cases/ibm-apiconnect/6.0.0/component-set-config.yaml is complete
+Generating mirror manifests of CASE: ibm-apiconnect, version: 6.0.0 is complete
+
+
+
+Next steps
+
+- To mirror the images:
+
+ oc image mirror -f /home/admin/.ibm-pak/data/mirror/ibm-apiconnect/6.0.0/images-mapping.txt --filter-by-os '.*' -a $REGISTRY_AUTH_FILE --insecure --skip-multiple-scopes --max-per-registry=1
+
