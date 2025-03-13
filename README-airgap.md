@@ -42,7 +42,7 @@ verify that the catalog sources you created above are present
 
 `oc get catalogsource -n openshift-marketplace`
 
-If you are installing to a namespace, look at 02b-cp4iopgroup.yaml and make sure the name space is set to the namespace you want to install to and then run
+If you are installing to a namespace, look at 02b-cp4iopgroup.yaml and 13-foundationservices-sub.yaml and make sure the name space is set to the namespace you want to install to and then run. If you are scoping to cluster, don't run 02b-cp4iopgroup.yaml and make sure that foundation services (13-foundationservices-sub.yaml) is created in the ibm-common-services namespace.
 
 `./10-create-namespaces.sh`
 
@@ -54,23 +54,25 @@ If you are installing to a namespace, look at 02b-cp4iopgroup.yaml and make sure
 
 `oc get csv -n cert-manager-operator`
 
-`oc apply -f  03-foundationservices-sub.yaml`
+`oc apply -f  13-foundationservices-sub.yaml`
 
-`oc apply -f  04-ibm-integration-platform-navigator-sub.yaml`
+`oc apply -f  14-ibm-integration-platform-navigator-sub.yaml`
 
-`oc apply -f  05-app-connect-sub.yaml`
+`oc apply -f  15-app-connect-sub.yaml`
 
-`oc apply -f  06-eem-sub.yaml`
+`oc apply -f  16-eem-sub.yaml`
 
-`oc apply -f  07-es-sub.yaml`
+`oc apply -f  17-es-sub.yaml`
 
-`oc apply -f  08-license-sub.yaml -n ibm-licensing` 
+`oc apply -f  18-license-sub.yaml -n ibm-licensing` 
 
-`oc apply -f  09-mq-sub.yaml`
+`oc apply -f  19-mq-sub.yaml`
 
-`oc apply -f  10-auto-foundation-assets-sub.yaml`
+`oc apply -f  20-auto-foundation-assets-sub.yaml`
 
-`oc apply -f  11-platformnavigatorui.yaml`
+`oc apply -f  21-eventprocessing-sub.yaml`
+
+`oc apply -f  31-platformnavigatorui.yaml`
 
 `oc get consolelink | grep "IBM Cloud Pak for Integration"`
 
