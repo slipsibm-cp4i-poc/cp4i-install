@@ -12,7 +12,7 @@ download and install ibm-pak plugin
 
 go into 02-mirror-airgap.sh and make sure arch is set properly
 
-go into 10-create-namespaces.sh and set the namespace you want to install into. It is currently set to cp4i-demo.
+go into 10-create-namespaces.sh and set the namespace you want to install into. It is currently set to cp4i-demo. If you are running a namespace install, set the project to the namespace you want to install into via `oc project`, otherwise set it to openshift-operators
 
 get entitlement and log in to cp.icr.io with entitlement-key user=cp , password=<entitlement-key>
 
@@ -21,7 +21,7 @@ get entitlement and log in to cp.icr.io with entitlement-key user=cp , password=
 `podman login to your mirror registry`
 
 
-Step 02-mirror-airgap.sh will mirror the images, apply imagesourcepolicies and catalogsources.  
+Step 02-mirror-airgap.sh will mirror the images, apply imagesourcepolicies.  
 
 
 `./02-mirror-airgap.sh` 
