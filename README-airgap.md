@@ -32,7 +32,7 @@ Use your Red Hat credentials to login to redhat.registry.io
 
 Edit imageset-config.yaml to point to your mirror registry and adjust skiptls flags
 
-`oc mirror  --config=./imageset-config.yaml docker://bastion.gym.lan:8443 --skip-pruning --dest-skip-tls`
+`oc mirror  --config=cp4i-install/imageset-config.yaml docker://bastion.gym.lan:8443 --skip-pruning  --dest-skip-tls`
 
 Go to oc-mirror-workspace/results-xxxxxx and examine the catalog source and image source policy files. Determine if the catalog source for the Operator Index is already set to your mirror repository. Examine the ImageContentSourcePolicy and make sure the name provided is unique. The default name generated is "generic-0". Then apply the catalog sourcec if necessary and then the imagecontentsourcepolicy 
 
