@@ -4,6 +4,7 @@ For CP4I 16.1.1
 
 This assumes you have already setup a mirror for Openshift and that the global pull secret and addtional trust bundle are already set in the OCP cluster so that OCP can access your local registry. 
 These instructions and yaml are just helpers. Make sure you consult the install docs to ensure you understand the steps and that nothing has changed.
+For an example of this see `user-ca-bundle.yaml` and `cluster-proxy-yaml`. Don't execute these unless you know that you cluster doesn't have a proxy or user-ca-bundle already. Otherwise you will mess up your cluster.
 
 
 oc login with proper credentials
