@@ -21,10 +21,10 @@ get entitlement and log in to cp.icr.io with entitlement-key user=cp , password=
 `podman login to your mirror registry`
 
 
-Step 02-mirror-airgap.sh will mirror the images, apply imagesourcepolicies.  
+Step 02-mirror-airgap-xxxxx.sh will mirror the images, apply imagesourcepolicies.  Where xxxx is either bastion or portable, depending on the mirroring path you chose. Edit  02-mirror-airgap-bastion.sh and set TARGET_REGISTRY to the name of your mirror registry. 
 
 
-`./02-mirror-airgap.sh` 
+`./02-mirror-airgap-xxxx.sh` 
 
 Use your Red Hat credentials to login to redhat.registry.io 
 
