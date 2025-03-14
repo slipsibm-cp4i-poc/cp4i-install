@@ -5,7 +5,7 @@ metadata:
   labels:
     backup.integration.ibm.com/component: subscription        
 spec:
-  channel: v8
+  channel: v8.0
   name: ibm-integration-platform-navigator
   source: ibm-integration-platform-navigator-catalog
   sourceNamespace: openshift-marketplace
