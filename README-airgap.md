@@ -2,10 +2,12 @@
 ## Intro
 Updated For CP4I 16.1.1
 
-This assumes you have already setup a mirror for Openshift and that the global pull secret and addtional trust bundle are already set in the OCP cluster so that OCP can access your local registry. 
-These instructions and yaml are just helpers. Make sure you consult the install docs to ensure you understand the steps and that nothing has changed.
-For an example of this see `user-ca-bundle.yaml` and `cluster-proxy-yaml`. Don't execute these unless you know that you cluster doesn't have a proxy or user-ca-bundle already. Otherwise you will mess up your cluster.
+This assumes you have already setup a mirror for Openshift and that the global pull secret and addtional trust bundle are already set in the OCP cluster so that OCP can access your local registry. For an example of this see `user-ca-bundle.yaml` and `cluster-proxy-yaml`. Don't execute these unless you know that you cluster doesn't have a proxy or user-ca-bundle already. Otherwise you will mess up your cluster.
 
+## Disclaimer
+These instructions and yaml are just helpers. Make sure you consult the install docs to ensure you understand the steps and that nothing has changed.
+
+## Preparation of Bastion
 
 oc login with proper credentials
 
@@ -21,11 +23,14 @@ get entitlement and log in to cp.icr.io with entitlement-key user=cp , password=
 
 `podman login to your mirror registry`
 
-
+## Populate Mirror and apply Catalog Sources and ImageContertSourcePolicies
 Step 02-mirror-airgap-xxxxx.sh will mirror the images, apply imagesourcepolicies.  Where xxxx is either bastion or portable, depending on the mirroring path you chose. Edit  02-mirror-airgap-bastion.sh and set TARGET_REGISTRY to the name of your mirror registry. 
 
 
 `./02-mirror-airgap-xxxx.sh` 
+
+## Mirror Red Hat Operators if Necessary
+Samples of how to do this are provided but make sure these are the right versions for the OpenShift version you are using.
 
 Use your Red Hat credentials to login to redhat.registry.io 
 
@@ -43,11 +48,14 @@ verify that the catalog sources you created above are present
 
 `oc get catalogsource -n openshift-marketplace`
 
+# Cloud pak Install
+## Create Namespaces and Install RH Cert Manager
 If you are installing to a namespace, look at 02b-cp4iopgroup.yaml and 13-foundationservices-sub.yaml and make sure the name space is set to the namespace you want to install to and then run. If you are scoping to cluster, don't run 02b-cp4iopgroup.yaml and make sure that foundation services (13-foundationservices-sub.yaml) is created in the ibm-common-services namespace.
 
 `./10-create-namespaces.sh`
 
-`oc apply -f 02b-cp4iopgroup.yaml`
+
+`oc apply -f 02b-cp4iopgroup.yaml` * Run only if installing in Namespace Mode
 
 `oc apply -f 11a-certmanager-opgroup.yaml`
 
@@ -55,24 +63,27 @@ If you are installing to a namespace, look at 02b-cp4iopgroup.yaml and 13-founda
 
 `oc get csv -n cert-manager-operator`
 
+## Install Foundation Services Operator
 `oc apply -f  13-foundationservices-sub.yaml`
 
+## Install CP4I Operator 
 `oc apply -f  14-ibm-integration-platform-navigator-sub.yaml`
-
+## Install ACE Operator
 `oc apply -f  15-app-connect-sub.yaml`
-
+## Install Event Endpoint Management Operator
 `oc apply -f  16-eem-sub.yaml`
-
+## Install Event Streams (Kafka) Operator
 `oc apply -f  17-es-sub.yaml`
-
+## Install License Service
 `oc apply -f  18-license-sub.yaml -n ibm-licensing` 
-
+## Install MQ Operator
 `oc apply -f  19-mq-sub.yaml`
 
+## Install IBM Automation foundation assets
 `oc apply -f  20-auto-foundation-assets-sub.yaml`
-
+## Install Event Processing Operator
 `oc apply -f  21-eventprocessing-sub.yaml`
-
+## Install Platform Navigator UI
 `oc apply -f  31-platformnavigatorui.yaml`
 
 `oc get consolelink | grep "IBM Cloud Pak for Integration"`
