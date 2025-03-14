@@ -71,3 +71,10 @@ oc image mirror   -f ~/.ibm-pak/data/mirror/$OPERATOR_PACKAGE_NAME/$OPERATOR_VER
 oc apply -f  ~/.ibm-pak/data/mirror/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/image-content-source-policy.yaml
 wget -O ~/catalog-source-$OPERATOR_PACKAGE_NAME-$OPERATOR_VERSION.yaml https://raw.githubusercontent.com/IBM/cloud-pak/master/repo/case/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/OLM/catalog-sources.yaml
 oc apply -f ~/catalog-source-$OPERATOR_PACKAGE_NAME-$OPERATOR_VERSION.yaml
+export OPERATOR_PACKAGE_NAME=ibm-licensing && export OPERATOR_VERSION=4.2.13
+oc ibm-pak get $OPERATOR_PACKAGE_NAME --version $OPERATOR_VERSION --skip-dependencies
+oc ibm-pak generate mirror-manifests $OPERATOR_PACKAGE_NAME --version $OPERATOR_VERSION $TARGET_REGISTRY
+oc image mirror   -f ~/.ibm-pak/data/mirror/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/images-mapping.txt   -a $REGISTRY_AUTH_FILE --filter-by-os '.*'   --skip-multiple-scopes   --max-per-registry=1 --insecure
+oc apply -f  ~/.ibm-pak/data/mirror/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/image-content-source-policy.yaml
+wget -O ~/catalog-source-$OPERATOR_PACKAGE_NAME-$OPERATOR_VERSION.yaml https://raw.githubusercontent.com/IBM/cloud-pak/master/repo/case/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/OLM/catalog-sources.yaml
+oc apply -f ~/catalog-source-$OPERATOR_PACKAGE_NAME-$OPERATOR_VERSION.yaml
