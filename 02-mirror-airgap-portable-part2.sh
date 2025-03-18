@@ -9,7 +9,7 @@ oc image mirror \
   --filter-by-os '.*' \
   --skip-multiple-scopes \
   --max-per-registry=1 \
-  --from-dir "$IMAGE_PATH"
+  --from-dir "$IMAGE_PATH" --insecure
 oc apply -f  ~/.ibm-pak/data/mirror/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/image-content-source-policy.yaml
 wget -O ~/catalog-source-$OPERATOR_PACKAGE_NAME-$OPERATOR_VERSION.yaml https://raw.githubusercontent.com/IBM/cloud-pak/master/repo/case/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/OLM/catalog-sources.yaml
 oc apply -f ~/catalog-source-$OPERATOR_PACKAGE_NAME-$OPERATOR_VERSION.yaml
@@ -20,7 +20,7 @@ oc image mirror \
   --filter-by-os '.*' \
   --skip-multiple-scopes \
   --max-per-registry=1 \
-  --from-dir "$IMAGE_PATH"
+  --from-dir "$IMAGE_PATH" --insecure
 oc apply -f  ~/.ibm-pak/data/mirror/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/image-content-source-policy.yaml
 wget -O ~/catalog-source-$OPERATOR_PACKAGE_NAME-$OPERATOR_VERSION.yaml https://raw.githubusercontent.com/IBM/cloud-pak/master/repo/case/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/OLM/catalog-sources.yaml
 oc apply -f ~/catalog-source-$OPERATOR_PACKAGE_NAME-$OPERATOR_VERSION.yaml
@@ -31,7 +31,7 @@ oc image mirror \
   --filter-by-os '.*' \
   --skip-multiple-scopes \
   --max-per-registry=1 \
-  --from-dir "$IMAGE_PATH"
+  --from-dir "$IMAGE_PATH" --insecure
 oc apply -f  ~/.ibm-pak/data/mirror/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/image-content-source-policy.yaml
 wget -O ~/catalog-source-$OPERATOR_PACKAGE_NAME-$OPERATOR_VERSION.yaml https://raw.githubusercontent.com/IBM/cloud-pak/master/repo/case/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/OLM/catalog-sources.yaml
 oc apply -f ~/catalog-source-$OPERATOR_PACKAGE_NAME-$OPERATOR_VERSION.yaml
@@ -42,7 +42,7 @@ oc image mirror \
   --filter-by-os '.*' \
   --skip-multiple-scopes \
   --max-per-registry=1 \
-  --from-dir "$IMAGE_PATH"
+  --from-dir "$IMAGE_PATH" --insecure
 oc apply -f  ~/.ibm-pak/data/mirror/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/image-content-source-policy.yaml
 wget -O ~/catalog-source-$OPERATOR_PACKAGE_NAME-$OPERATOR_VERSION.yaml https://raw.githubusercontent.com/IBM/cloud-pak/master/repo/case/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/OLM/catalog-sources.yaml
 oc apply -f ~/catalog-source-$OPERATOR_PACKAGE_NAME-$OPERATOR_VERSION.yaml
@@ -53,7 +53,7 @@ oc image mirror \
   --filter-by-os '.*' \
   --skip-multiple-scopes \
   --max-per-registry=1 \
-  --from-dir "$IMAGE_PATH"
+  --from-dir "$IMAGE_PATH" --insecure
 oc apply -f  ~/.ibm-pak/data/mirror/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/image-content-source-policy.yaml
 wget -O ~/catalog-source-$OPERATOR_PACKAGE_NAME-$OPERATOR_VERSION.yaml https://raw.githubusercontent.com/IBM/cloud-pak/master/repo/case/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/OLM/catalog-sources.yaml
 oc apply -f ~/catalog-source-$OPERATOR_PACKAGE_NAME-$OPERATOR_VERSION.yaml
@@ -64,7 +64,7 @@ oc image mirror \
   --filter-by-os '.*' \
   --skip-multiple-scopes \
   --max-per-registry=1 \
-  --from-dir "$IMAGE_PATH"
+  --from-dir "$IMAGE_PATH" --insecure
 oc apply -f  ~/.ibm-pak/data/mirror/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/image-content-source-policy.yaml
 wget -O ~/catalog-source-$OPERATOR_PACKAGE_NAME-$OPERATOR_VERSION.yaml https://raw.githubusercontent.com/IBM/cloud-pak/master/repo/case/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/OLM/catalog-sources.yaml
 oc apply -f ~/catalog-source-$OPERATOR_PACKAGE_NAME-$OPERATOR_VERSION.yaml
@@ -75,7 +75,7 @@ oc image mirror \
   --filter-by-os '.*' \
   --skip-multiple-scopes \
   --max-per-registry=1 \
-  --from-dir "$IMAGE_PATH"
+  --from-dir "$IMAGE_PATH" --insecure
 oc apply -f  ~/.ibm-pak/data/mirror/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/image-content-source-policy.yaml
 wget -O ~/catalog-source-$OPERATOR_PACKAGE_NAME-$OPERATOR_VERSION.yaml https://raw.githubusercontent.com/IBM/cloud-pak/master/repo/case/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/OLM/catalog-sources-linux-amd64.yaml
 oc apply -f ~/catalog-source-$OPERATOR_PACKAGE_NAME-$OPERATOR_VERSION.yaml
@@ -86,7 +86,7 @@ oc image mirror \
   --filter-by-os '.*' \
   --skip-multiple-scopes \
   --max-per-registry=1 \
-  --from-dir "$IMAGE_PATH"
+  --from-dir "$IMAGE_PATH" --insecure
 oc apply -f  ~/.ibm-pak/data/mirror/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/image-content-source-policy.yaml
 wget -O ~/catalog-source-$OPERATOR_PACKAGE_NAME-$OPERATOR_VERSION.yaml https://raw.githubusercontent.com/IBM/cloud-pak/master/repo/case/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/OLM/catalog-sources.yaml
 oc apply -f ~/catalog-source-$OPERATOR_PACKAGE_NAME-$OPERATOR_VERSION.yaml
@@ -97,7 +97,7 @@ oc image mirror \
   --filter-by-os '.*' \
   --skip-multiple-scopes \
   --max-per-registry=1 \
-  --from-dir "$IMAGE_PATH"
+  --from-dir "$IMAGE_PATH" --insecure
 oc apply -f  ~/.ibm-pak/data/mirror/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/image-content-source-policy.yaml
 wget -O ~/catalog-source-$OPERATOR_PACKAGE_NAME-$OPERATOR_VERSION.yaml https://raw.githubusercontent.com/IBM/cloud-pak/master/repo/case/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/OLM/catalog-sources.yaml
 oc apply -f ~/catalog-source-$OPERATOR_PACKAGE_NAME-$OPERATOR_VERSION.yaml
@@ -108,7 +108,7 @@ oc image mirror \
   --filter-by-os '.*' \
   --skip-multiple-scopes \
   --max-per-registry=1 \
-  --from-dir "$IMAGE_PATH"
+  --from-dir "$IMAGE_PATH" --insecure
 oc apply -f  ~/.ibm-pak/data/mirror/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/image-content-source-policy.yaml
 wget -O ~/catalog-source-$OPERATOR_PACKAGE_NAME-$OPERATOR_VERSION.yaml https://raw.githubusercontent.com/IBM/cloud-pak/master/repo/case/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/OLM/catalog-sources.yaml
 oc apply -f ~/catalog-source-$OPERATOR_PACKAGE_NAME-$OPERATOR_VERSION.yaml
@@ -119,7 +119,7 @@ oc image mirror \
   --filter-by-os '.*' \
   --skip-multiple-scopes \
   --max-per-registry=1 \
-  --from-dir "$IMAGE_PATH"
+  --from-dir "$IMAGE_PATH" --insecure
 oc apply -f  ~/.ibm-pak/data/mirror/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/image-content-source-policy.yaml
 wget -O ~/catalog-source-$OPERATOR_PACKAGE_NAME-$OPERATOR_VERSION.yaml https://raw.githubusercontent.com/IBM/cloud-pak/master/repo/case/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/OLM/catalog-sources.yaml
 oc apply -f ~/catalog-source-$OPERATOR_PACKAGE_NAME-$OPERATOR_VERSION.yaml
