@@ -2,7 +2,7 @@ export ARCH=amd64
 export TARGET_REGISTRY=bastion.gym.lan:8443/cp4i-demo
 export IMAGE_PATH=~/cp4i-portable-mirror
 export REGISTRY_AUTH_FILE=$XDG_RUNTIME_DIR/containers/auth.json
-export OPERATOR_PACKAGE_NAME=ibm-integration-platform-navigator && export OPERATOR_VERSION=8.0.1
+export OPERATOR_PACKAGE_NAME=ibm-integration-platform-navigator && export OPERATOR_VERSION=8.0.2
 oc image mirror \
   -f ~/.ibm-pak/data/mirror/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/images-mapping-from-filesystem.txt \
   -a $REGISTRY_AUTH_FILE \

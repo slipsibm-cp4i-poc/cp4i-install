@@ -2,10 +2,14 @@
 ## Intro
 Updated For CP4I 16.1.1
 
-This assumes you have already setup a mirror for Openshift and that the global pull secret and addtional trust bundle are already set in the OCP cluster so that OCP can access your local registry. For an example of this see `user-ca-bundle.yaml` and `cluster-proxy-yaml`. Don't execute these unless you know that you cluster doesn't have a proxy or user-ca-bundle already. Otherwise you will mess up your cluster.
+This assumes you have already setup a mirror for Openshift and that the global pull secret and addtional trust bundle are already set in the OCP cluster so that OCP can access your local registry. Look here for a simple mirror registry. -> https://docs.redhat.com/en/documentation/openshift_container_platform/4.16/html/disconnected_installation_mirroring/installing-mirroring-creating-registry#prerequisites_installing-mirroring-creating-registry
+
+For an example of trusting your mirror see `user-ca-bundle.yaml` and `cluster-proxy-yaml`. Don't execute these unless you know that you cluster doesn't have a proxy or user-ca-bundle already. Otherwise you will mess up your cluster. You can should also be able to do that by by editing the `image.config.openshift.io/cluster` custom resource (CR). -> https://docs.redhat.com/en/documentation/openshift_container_platform/4.16/html/images/image-configuration#images-configuration-file_image-configuration
 
 ## Disclaimer
 These instructions and yaml are just helpers. Make sure you consult the install docs to ensure you understand the steps and that nothing has changed.
+
+Install instructions for 16.1.1 are here -> https://www.ibm.com/docs/en/cloud-paks/cp-integration/16.1.1?topic=installing#manual-installation__title__1
 
 ## Preparation of Bastion
 
@@ -13,21 +17,48 @@ oc login with proper credentials
 
 download and install ibm-pak plugin
 
-go into 02-mirror-airgap.sh and make sure arch is set properly
+go into 02-mirror-airgap-bastion.sh, 02-mirror-airgap-portable-part1.sh or 02-mirror-airgap-portable-part2.sh and make sure arch is set properly
 
 go into 10-create-namespaces.sh and set the namespace you want to install into. It is currently set to cp4i-demo. If you are running a namespace install, set the project to the namespace you want to install into via `oc project`, otherwise set it to openshift-operators
 
 get entitlement and log in to cp.icr.io with entitlement-key user=cp , password=<entitlement-key>
 
-`podman login cp.icr.io`
 
-`podman login to your mirror registry`
 
 ## Populate Mirror and apply Catalog Sources and ImageContertSourcePolicies
 Step 02-mirror-airgap-xxxxx.sh will mirror the images, apply imagesourcepolicies.  Where xxxx is either bastion or portable, depending on the mirroring path you chose. Edit  02-mirror-airgap-bastion.sh and set TARGET_REGISTRY to the name of your mirror registry. 
 
+## ** If mirroring of ibm-integration-platform-navigator version 8.0.2 fails, mirror 8.0.1 instead
 
-`./02-mirror-airgap-xxxx.sh` 
+## Bastion Path
+get entitlement and log in to cp.icr.io with entitlement-key user=cp , password=<entitlement-key>
+login to cp.icr.io and to your mirror registry 
+
+`podman login cp.icr.io`
+
+`podman login to your mirror registry`
+
+examine mirroring script to determine which components of cloud pak you want to mirror
+
+`./02-mirror-airgap-bastion.sh` 
+
+Mirror any Red Hat Operators if necessary
+
+## Portable Path
+
+get entitlement and log in to cp.icr.io with entitlement-key user=cp , password=<entitlement-key>
+also mirror any redhat operators needed before you move files or machine to airgapped network.
+Examine mirroring scripts (part1 and part 2) to determine which components of cloud pak you want to mirror.
+Run part1 on computer with Internet access.
+`podman login cp.icr.io`
+
+`./02-mirror-airgap-portable-part1.sh`
+
+Move machine or portable file system to airgapped network and login to your mirror registry. 
+`podman login to your mirror registry`
+
+`./02-mirror-airgap-portable-part2.sh`
+
 
 ## Mirror Red Hat Operators if Necessary
 Samples of how to do this are provided but make sure these are the right versions for the OpenShift version you are using.
