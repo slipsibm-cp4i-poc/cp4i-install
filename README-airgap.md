@@ -2,12 +2,12 @@
 ## Intro
 Updated For CP4I 16.1.1
 
-This assumes you have already setup a mirror for Openshift and that the global pull secret and addtional trust bundle are already set in the OCP cluster so that OCP can access your local registry. Look here for a simple mirror registry. -> https://docs.redhat.com/en/documentation/openshift_container_platform/4.16/html/disconnected_installation_mirroring/installing-mirroring-creating-registry#prerequisites_installing-mirroring-creating-registry
+These instructions assume you have a working Openshift Environment and have already setup a mirror for Openshift. Also assumes that the global pull secret and addtional trust bundle are already set in the OCP cluster so that OCP can access your local registry. Look here for a simple mirror registry. -> https://docs.redhat.com/en/documentation/openshift_container_platform/4.16/html/disconnected_installation_mirroring/installing-mirroring-creating-registry#prerequisites_installing-mirroring-creating-registry
 
-For an example of trusting your mirror see `user-ca-bundle.yaml` and `cluster-proxy-yaml`. Don't execute these unless you know that you cluster doesn't have a proxy or user-ca-bundle already. Otherwise you will mess up your cluster. You can should also be able to do that by by editing the `image.config.openshift.io/cluster` custom resource (CR). -> https://docs.redhat.com/en/documentation/openshift_container_platform/4.16/html/images/image-configuration#images-configuration-file_image-configuration
+For an example of trusting your mirror see `user-ca-bundle.yaml` and `cluster-proxy-yaml`. https://docs.redhat.com/en/documentation/openshift_container_platform/4.16/html/networking/enable-cluster-wide-proxy#enable-cluster-wide-proxy Don't execute these unless you know that your cluster doesn't have a proxy or user-ca-bundle already, otherwise you will mess up your cluster. Alternately, You should be able to trust your registry by by editing the `image.config.openshift.io/cluster` custom resource (CR) and adding your mirror there. -> https://docs.redhat.com/en/documentation/openshift_container_platform/4.16/html/images/image-configuration#images-configuration-file_image-configuration
 
 ## Disclaimer
-These instructions and yaml are just helpers. Make sure you consult the install docs to ensure you understand the steps and that nothing has changed.
+These instructions, scripts and yaml are just helpers. Make sure you consult the install docs to ensure you understand the steps and that nothing has changed.
 
 Install instructions for 16.1.1 are here -> https://www.ibm.com/docs/en/cloud-paks/cp-integration/16.1.1?topic=installing#manual-installation__title__1
 
