@@ -1,41 +1,23 @@
-export ARCH=amd64
-export OPERATOR_PACKAGE_NAME=ibm-integration-platform-navigator && export OPERATOR_VERSION=7.3.4
-oc ibm-pak get ${OPERATOR_PACKAGE_NAME} --version ${OPERATOR_VERSION}
-oc ibm-pak generate mirror-manifests ${OPERATOR_PACKAGE_NAME} icr.io --version ${OPERATOR_VERSION}
-oc apply -f ~/.ibm-pak/data/mirror/${OPERATOR_PACKAGE_NAME}/${OPERATOR_VERSION}/catalog-sources.yaml
-oc apply -f ~/.ibm-pak/data/mirror/${OPERATOR_PACKAGE_NAME}/${OPERATOR_VERSION}/catalog-sources-linux-${ARCH}.yaml
-export OPERATOR_PACKAGE_NAME=ibm-appconnect && export OPERATOR_VERSION=12.0.3
-oc ibm-pak get ${OPERATOR_PACKAGE_NAME} --version ${OPERATOR_VERSION}
-oc ibm-pak generate mirror-manifests ${OPERATOR_PACKAGE_NAME} icr.io --version ${OPERATOR_VERSION}
-oc apply -f ~/.ibm-pak/data/mirror/${OPERATOR_PACKAGE_NAME}/${OPERATOR_VERSION}/catalog-sources.yaml
-oc apply -f ~/.ibm-pak/data/mirror/${OPERATOR_PACKAGE_NAME}/${OPERATOR_VERSION}/catalog-sources-linux-${ARCH}.yaml
-export OPERATOR_PACKAGE_NAME=ibm-mq && export OPERATOR_VERSION=3.2.4
-oc ibm-pak get ${OPERATOR_PACKAGE_NAME} --version ${OPERATOR_VERSION}
-oc ibm-pak generate mirror-manifests ${OPERATOR_PACKAGE_NAME} icr.io --version ${OPERATOR_VERSION}
-oc apply -f ~/.ibm-pak/data/mirror/${OPERATOR_PACKAGE_NAME}/${OPERATOR_VERSION}/catalog-sources.yaml
-oc apply -f ~/.ibm-pak/data/mirror/${OPERATOR_PACKAGE_NAME}/${OPERATOR_VERSION}/catalog-sources-linux-${ARCH}.yaml
-export OPERATOR_PACKAGE_NAME=ibm-eventstreams && export OPERATOR_VERSION=3.5.0
-oc ibm-pak get ${OPERATOR_PACKAGE_NAME} --version ${OPERATOR_VERSION}
-oc ibm-pak generate mirror-manifests ${OPERATOR_PACKAGE_NAME} icr.io --version ${OPERATOR_VERSION}
-oc apply -f ~/.ibm-pak/data/mirror/${OPERATOR_PACKAGE_NAME}/${OPERATOR_VERSION}/catalog-sources.yaml
-oc apply -f ~/.ibm-pak/data/mirror/${OPERATOR_PACKAGE_NAME}/${OPERATOR_VERSION}/catalog-sources-linux-${ARCH}.yaml
-export OPERATOR_PACKAGE_NAME=ibm-eventendpointmanagement && export OPERATOR_VERSION=11.3.0
-oc ibm-pak get ${OPERATOR_PACKAGE_NAME} --version ${OPERATOR_VERSION}
-oc ibm-pak generate mirror-manifests ${OPERATOR_PACKAGE_NAME} icr.io --version ${OPERATOR_VERSION}
-oc apply -f ~/.ibm-pak/data/mirror/${OPERATOR_PACKAGE_NAME}/${OPERATOR_VERSION}/catalog-sources.yaml
-oc apply -f ~/.ibm-pak/data/mirror/${OPERATOR_PACKAGE_NAME}/${OPERATOR_VERSION}/catalog-sources-linux-${ARCH}.yaml
-export OPERATOR_PACKAGE_NAME=ibm-cp-common-services && export OPERATOR_VERSION=4.6.6
-oc ibm-pak get ${OPERATOR_PACKAGE_NAME} --version ${OPERATOR_VERSION}
-oc ibm-pak generate mirror-manifests ${OPERATOR_PACKAGE_NAME} icr.io --version ${OPERATOR_VERSION}
-oc apply -f ~/.ibm-pak/data/mirror/${OPERATOR_PACKAGE_NAME}/${OPERATOR_VERSION}/catalog-sources.yaml
-oc apply -f ~/.ibm-pak/data/mirror/${OPERATOR_PACKAGE_NAME}/${OPERATOR_VERSION}/catalog-sources-linux-${ARCH}.yaml
-export OPERATOR_PACKAGE_NAME=ibm-integration-asset-repository && export OPERATOR_VERSION=1.7.3
-oc ibm-pak get ${OPERATOR_PACKAGE_NAME} --version ${OPERATOR_VERSION}
-oc ibm-pak generate mirror-manifests ${OPERATOR_PACKAGE_NAME} icr.io --version ${OPERATOR_VERSION}
-oc apply -f ~/.ibm-pak/data/mirror/${OPERATOR_PACKAGE_NAME}/${OPERATOR_VERSION}/catalog-sources.yaml
-oc apply -f ~/.ibm-pak/data/mirror/${OPERATOR_PACKAGE_NAME}/${OPERATOR_VERSION}/catalog-sources-linux-${ARCH}.yaml
-export OPERATOR_PACKAGE_NAME=ibm-cloud-native-postgresql && export OPERATOR_VERSION=5.0.0
-oc ibm-pak get ${OPERATOR_PACKAGE_NAME} --version ${OPERATOR_VERSION}
-oc ibm-pak generate mirror-manifests ${OPERATOR_PACKAGE_NAME} icr.io --version ${OPERATOR_VERSION}
-oc apply -f ~/.ibm-pak/data/mirror/${OPERATOR_PACKAGE_NAME}/${OPERATOR_VERSION}/catalog-sources.yaml
-oc apply -f ~/.ibm-pak/data/mirror/${OPERATOR_PACKAGE_NAME}/${OPERATOR_VERSION}/catalog-sources-linux-${ARCH}.yaml
+
+export OPERATOR_PACKAGE_NAME=ibm-integration-platform-navigator && export OPERATOR_VERSION=8.0.2
+oc apply --filename https://raw.githubusercontent.com/IBM/cloud-pak/master/repo/case/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/OLM/catalog-sources.yaml
+export OPERATOR_PACKAGE_NAME=ibm-apiconnect && export OPERATOR_VERSION=6.0.0
+oc apply --filename https://raw.githubusercontent.com/IBM/cloud-pak/master/repo/case/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/OLM/catalog-sources.yaml
+export OPERATOR_PACKAGE_NAME=ibm-mq && export OPERATOR_VERSION=3.5.0
+oc apply --filename https://raw.githubusercontent.com/IBM/cloud-pak/master/repo/case/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/OLM/catalog-sources.yaml
+export OPERATOR_PACKAGE_NAME=ibm-eventstreams && export OPERATOR_VERSION=3.6.1
+oc apply --filename https://raw.githubusercontent.com/IBM/cloud-pak/master/repo/case/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/OLM/catalog-sources.yaml
+export OPERATOR_PACKAGE_NAME=ibm-eventendpointmanagement && export OPERATOR_VERSION=11.4.2
+oc apply --filename https://raw.githubusercontent.com/IBM/cloud-pak/master/repo/case/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/OLM/catalog-sources.yaml
+export OPERATOR_PACKAGE_NAME=ibm-cp-common-services && export OPERATOR_VERSION=4.6.11
+oc apply --filename https://raw.githubusercontent.com/IBM/cloud-pak/master/repo/case/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/OLM/catalog-sources.yaml
+export OPERATOR_PACKAGE_NAME=ibm-integration-asset-repository && export OPERATOR_VERSION=1.8.2
+oc apply --filename https://raw.githubusercontent.com/IBM/cloud-pak/master/repo/case/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/OLM/catalog-sources.yaml
+export OPERATOR_PACKAGE_NAME=ibm-eventprocessing && export OPERATOR_VERSION=1.3.0
+oc apply --filename https://raw.githubusercontent.com/IBM/cloud-pak/master/repo/case/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/OLM/catalog-sources.yaml
+export OPERATOR_PACKAGE_NAME=ibm-eventautomation-flink && export OPERATOR_VERSION=1.3.0
+oc apply --filename https://raw.githubusercontent.com/IBM/cloud-pak/master/repo/case/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/OLM/catalog-sources.yaml
+export OPERATOR_PACKAGE_NAME=ibm-datapower-operator && export OPERATOR_VERSION=1.13.1
+oc apply --filename https://raw.githubusercontent.com/IBM/cloud-pak/master/repo/case/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/OLM/catalog-sources.yaml
+export OPERATOR_PACKAGE_NAME=ibm-licensing && export OPERATOR_VERSION=4.2.13
+oc apply --filename https://raw.githubusercontent.com/IBM/cloud-pak/master/repo/case/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/OLM/catalog-sources.yaml
