@@ -2,7 +2,7 @@
 
 ## Intro
 
-Updated For CP4I 16.1.0
+Updated For CP4I 16.1.1
 
 These instructions and yaml are just helpers. Make sure you consult the install docs to ensure you understand the steps and that nothing has changed.
 
@@ -12,7 +12,8 @@ download and install ibm-pak plugin
 
 go into 02-cat-source.sh and make sure arch is set properly and that all the Operator Version Levels are all correct for the Cloud Pak version and Release you are installing.
 
-add entitlement key to global pull secret
+add ibm-entitlement key to global pull secret
+https://docs.redhat.com/en/documentation/openshift_container_platform/4.14/html/images/managing-images#images-update-global-pull-secret_using-image-pull-secrets
 
 `./00-create-namespaces.sh`
 
@@ -26,24 +27,51 @@ add entitlement key to global pull secret
 
 Note that it is normal that you may see an error in the apply's.
 
-`oc apply -f  03-foundationservices-sub.yaml`
+## Install Foundation Services Operator
 
-`oc apply -f  04-ibm-integration-platform-navigator-sub.yaml`
+`oc apply -f  13-foundationservices-sub.yaml`
 
-`oc apply -f  05-app-connect-sub.yaml`
+## Install CP4I Operator
 
-`oc apply -f  06-eem-sub.yaml`
+`oc apply -f  14-ibm-integration-platform-navigator-sub.yaml`
 
-`oc apply -f  07-es-sub.yaml`
+## Install ACE Operator
 
-`oc apply -f  08-license-sub.yaml -n ibm-licensing`
+`oc apply -f  15-app-connect-sub.yaml`
 
-`oc apply -f  09-mq-sub.yaml`
+## Install Event Endpoint Management Operator
 
-`oc apply -f  10-auto-foundation-assets-sub.yaml`
+`oc apply -f  16-eem-sub.yaml`
 
-`oc apply -f  11-platformnavigatorui.yaml`
+## Install Event Streams (Kafka) Operator
 
+`oc apply -f  17-es-sub.yaml`
+
+## Install License Service
+
+`oc apply -f  18-license-sub.yaml -n ibm-licensing`
+
+## Install MQ Operator
+
+`oc apply -f  19-mq-sub.yaml`
+
+## Install IBM Automation foundation assets
+
+`oc apply -f  20-auto-foundation-assets-sub.yaml`
+
+## Install Event Processing Operator
+
+`oc apply -f  21-eventprocessing-sub.yaml`
+
+## Install API Connect Operator
+
+`oc apply -f  22-apic-sub.yaml`
+
+## Install Platform Navigator UI
+
+`oc apply -f  31-platformnavigatorui.yaml`
+
+Verify platform navigator installed, get route and credentials
 `oc get consolelink | grep "IBM Cloud Pak for Integration"`
 
 `oc get secret integration-admin-initial-temporary-credentials -n ibm-common-services -o jsonpath='{.data.password}' | base64 --decode`

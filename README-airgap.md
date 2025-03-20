@@ -109,14 +109,16 @@ If you are installing to a namespace, look at 02b-cp4iopgroup.yaml and 13-founda
 `oc apply -f  18-license-sub.yaml -n ibm-licensing` 
 ## Install MQ Operator
 `oc apply -f  19-mq-sub.yaml`
-
 ## Install IBM Automation foundation assets
 `oc apply -f  20-auto-foundation-assets-sub.yaml`
 ## Install Event Processing Operator
 `oc apply -f  21-eventprocessing-sub.yaml`
+## Install API Connect Operator
+`oc apply -f  22-apic-sub.yaml`
+
+
 ## Install Platform Navigator UI
 `oc apply -f  31-platformnavigatorui.yaml`
-
 `oc get consolelink | grep "IBM Cloud Pak for Integration"`
 
 `oc get secret integration-admin-initial-temporary-credentials -n ibm-common-services -o jsonpath='{.data.password}' | base64 --decode`
