@@ -84,7 +84,7 @@ oc image mirror \
   --skip-multiple-scopes \
   --max-per-registry=1 \
   --dir "$IMAGE_PATH"
-wget -O ~/catalog-source-$OPERATOR_PACKAGE_NAME-$OPERATOR_VERSION.yaml https://raw.githubusercontent.com/IBM/cloud-pak/master/repo/case/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/OLM/catalog-sources.yaml
+wget -O ~/catalog-source-$OPERATOR_PACKAGE_NAME-$OPERATOR_VERSION.yaml https://raw.githubusercontent.com/IBM/cloud-pak/master/repo/case/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/OLM/catalog-sources-linux-amd64.yaml
 
 export OPERATOR_PACKAGE_NAME=ibm-eventprocessing && export OPERATOR_VERSION=1.3.0
 oc ibm-pak get $OPERATOR_PACKAGE_NAME --version $OPERATOR_VERSION --skip-dependencies
