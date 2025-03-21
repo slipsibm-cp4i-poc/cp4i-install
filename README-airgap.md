@@ -98,6 +98,7 @@ If you are installing to a namespace, look at 02b-cp4iopgroup.yaml and 13-founda
 `./10-create-namespaces.sh`
 
 
+
 `oc apply -f 02b-cp4iopgroup.yaml` * Run only if installing in Namespace Mode
 
 `oc apply -f 11a-certmanager-opgroup.yaml`
@@ -106,7 +107,14 @@ If you are installing to a namespace, look at 02b-cp4iopgroup.yaml and 13-founda
 
 `oc get csv -n cert-manager-operator`
 
-## Validate 
+Validate that the following *-sub.yaml files below are set properly with the name, catalog and channel versions are set properly. 
+
+Operator names available here: -> https://www.ibm.com/docs/en/cloud-paks/cp-integration/16.1.1?topic=operators-installing-by-using-cli#operators-available__title__1
+
+Channels can be found here: -> https://www.ibm.com/docs/en/cloud-paks/cp-integration/16.1.1?topic=reference-operator-instance-versions-this-release
+
+Catalog names are the names used when creating the catalog sources. Those files are generated out of the mirror command above. 
+
 
 ## Install Foundation Services Operator
 `oc apply -f  13-foundationservices-sub.yaml`
