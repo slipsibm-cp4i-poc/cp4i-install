@@ -1,8 +1,10 @@
-# CP4I Install Notes
+# CP4I Online Install Notes
 
 ## Intro
 
 Updated For CP4I 16.1.1
+
+See [Airgapped instructions](README-airgap.md) for airgapped instructions. 
 
 ## Disclaimer
 
