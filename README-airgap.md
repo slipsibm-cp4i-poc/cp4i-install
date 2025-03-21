@@ -14,7 +14,7 @@ These instructions, scripts and yaml are just helpers. Make sure you consult the
 Install instructions for 16.1.1 are here -> https://www.ibm.com/docs/en/cloud-paks/cp-integration/16.1.1?topic=installing#manual-installation__title__1
 
 ## Preparation of Bastion
-    Make sure firewalls allow access to: 
+Make sure firewalls allow access to: 
 
 *    icr.io:443 for entitled registry
    * quay.io:443 for Cloud Pak for Integration
