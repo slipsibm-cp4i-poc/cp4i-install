@@ -12,6 +12,15 @@ These instructions, scripts and yaml are just helpers. Make sure you consult the
 Install instructions for 16.1.1 are here -> https://www.ibm.com/docs/en/cloud-paks/cp-integration/16.1.1?topic=installing#manual-installation__title__1
 
 ## Preparation of Bastion
+Make sure firewalls allow access to: 
+    icr.io:443 for entitled registry
+
+    quay.io:443 for Cloud Pak for Integration
+
+    github.com for operator packages and tools
+
+    redhat.com for Red Hat OpenShift Container Platform upgrades
+
 
 oc login with proper credentials
 
@@ -21,24 +30,24 @@ go into 02-mirror-airgap-bastion.sh, 02-mirror-airgap-portable-part1.sh or 02-mi
 
 go into 10-create-namespaces.sh and set the namespace you want to install into. It is currently set to cp4i-demo. If you are running a namespace install, set the project to the namespace you want to install into via `oc project`, otherwise set it to openshift-operators
 
-get entitlement and log in to cp.icr.io with entitlement-key user=cp , password=<entitlement-key>
+Get entitlement and log in to cp.icr.io with entitlement-key user=cp , password=<entitlement-key>
 
 
 
 ## Populate Mirror and apply Catalog Sources and ImageContertSourcePolicies
 Step 02-mirror-airgap-xxxxx.sh will mirror the images, apply imagesourcepolicies.  Where xxxx is either bastion or portable, depending on the mirroring path you chose. Edit  02-mirror-airgap-bastion.sh and set TARGET_REGISTRY to the name of your mirror registry. 
 
-## ** If mirroring of ibm-integration-platform-navigator version 8.0.2 fails, mirror 8.0.1 instead
+## ** 16.1.1 Note. If mirroring of ibm-integration-platform-navigator version 8.0.2 fails, mirror 8.0.1 instead
 
 ## Bastion Path
-get entitlement and log in to cp.icr.io with entitlement-key user=cp , password=<entitlement-key>
+Get entitlement and log in to cp.icr.io with entitlement-key user=cp , password=<entitlement-key>
 login to cp.icr.io and to your mirror registry 
 
 `podman login cp.icr.io`
 
 `podman login to your mirror registry`
 
-examine mirroring script to determine which components of cloud pak you want to mirror
+Examine mirroring script to determine which components of cloud pak you want to mirror
 
 `./02-mirror-airgap-bastion.sh` 
 
@@ -46,8 +55,9 @@ Mirror any Red Hat Operators if necessary
 
 ## Portable Path
 
-get entitlement and log in to cp.icr.io with entitlement-key user=cp , password=<entitlement-key>
-also mirror any redhat operators needed before you move files or machine to airgapped network.
+Get entitlement and log in to cp.icr.io with entitlement-key user=cp , password=<entitlement-key>
+
+Also mirror any redhat operators needed before you move files or machine to airgapped network.
 Examine mirroring scripts (part1 and part 2) to determine which components of cloud pak you want to mirror.
 Run part1 on computer with Internet access.
 `podman login cp.icr.io`

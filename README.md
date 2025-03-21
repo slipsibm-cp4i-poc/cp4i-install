@@ -4,7 +4,11 @@
 
 Updated For CP4I 16.1.1
 
-These instructions and yaml are just helpers. Make sure you consult the install docs to ensure you understand the steps and that nothing has changed.
+## Disclaimer
+
+These instructions and yaml are just helpers. Make sure you consult the install docs to ensure you understand the steps and that nothing has changed. Install instructions for 16.1.1 are here -> <https://www.ibm.com/docs/en/cloud-paks/cp-integration/16.1.1?topic=installing#manual-installation__title__1>
+
+## Installation
 
 oc login with proper credentials
 
@@ -15,11 +19,13 @@ go into 02-cat-source.sh and make sure arch is set properly and that all the Ope
 add ibm-entitlement key to global pull secret
 https://docs.redhat.com/en/documentation/openshift_container_platform/4.14/html/images/managing-images#images-update-global-pull-secret_using-image-pull-secrets
 
-`./00-create-namespaces.sh`
 
-`oc apply -f 01a-certmanager-opgroup.yaml`
 
-`oc apply -f 01b-rh-certmanager-sub.yaml`
+`./10-create-namespaces.sh`
+
+`oc apply -f 11a-certmanager-opgroup.yaml`
+
+`oc apply -f 11b-rh-certmanager-sub.yaml`
 
 `oc get csv -n cert-manager-operator`
 
