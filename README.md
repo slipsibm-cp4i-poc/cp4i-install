@@ -20,6 +20,7 @@ add ibm-entitlement key to global pull secret
 https://docs.redhat.com/en/documentation/openshift_container_platform/4.14/html/images/managing-images#images-update-global-pull-secret_using-image-pull-secrets
 
 
+## **Note: You need to go in to 10-create-namespaces.sh and make sure that you set the project in the last line to either openshift-operators if you are scoping to the cluster or to the namespace that you are installing to if you are scoping to a single namespace
 
 `./10-create-namespaces.sh`
 

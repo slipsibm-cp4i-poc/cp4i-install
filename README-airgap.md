@@ -26,7 +26,7 @@ oc login with proper credentials
 
 download and install ibm-pak plugin
 
-go into 02-mirror-airgap-bastion.sh, 02-mirror-airgap-portable-part1.sh or 02-mirror-airgap-portable-part2.sh and make sure arch is set properly
+Go into 02-mirror-airgap-bastion.sh, 02-mirror-airgap-portable-part1.sh or 02-mirror-airgap-portable-part2.sh and make sure arch, OPERATOR_PACKAGE_NAME and OPERATOR_VERSION are set properly. Check here for proper versions -> https://www.ibm.com/docs/en/cloud-paks/cp-integration/16.1.1?topic=miagoc-mirroring-images-portable-compute-storage-device-file-system#export-commands-for-operators__title__1
 
 go into 10-create-namespaces.sh and set the namespace you want to install into. It is currently set to cp4i-demo. If you are running a namespace install, set the project to the namespace you want to install into via `oc project`, otherwise set it to openshift-operators
 
@@ -93,6 +93,8 @@ verify that the catalog sources you created above are present
 ## Create Namespaces and Install RH Cert Manager
 If you are installing to a namespace, look at 02b-cp4iopgroup.yaml and 13-foundationservices-sub.yaml and make sure the name space is set to the namespace you want to install to and then run. If you are scoping to cluster, don't run 02b-cp4iopgroup.yaml and make sure that foundation services (13-foundationservices-sub.yaml) is created in the ibm-common-services namespace.
 
+## **Note: You need to go in to 10-create-namespaces.sh and make sure that you set the project in the last line to either openshift-operators if you are scoping to the cluster or to the namespace that you are installing to if you are scoping to a single namespace. 
+
 `./10-create-namespaces.sh`
 
 
@@ -103,6 +105,8 @@ If you are installing to a namespace, look at 02b-cp4iopgroup.yaml and 13-founda
 `oc apply -f 11b-rh-certmanager-sub.yaml`
 
 `oc get csv -n cert-manager-operator`
+
+## Validate 
 
 ## Install Foundation Services Operator
 `oc apply -f  13-foundationservices-sub.yaml`
