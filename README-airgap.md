@@ -14,15 +14,12 @@ These instructions, scripts and yaml are just helpers. Make sure you consult the
 Install instructions for 16.1.1 are here -> https://www.ibm.com/docs/en/cloud-paks/cp-integration/16.1.1?topic=installing#manual-installation__title__1
 
 ## Preparation of Bastion
-Make sure firewalls allow access to: 
-    icr.io:443 for entitled registry
+    Make sure firewalls allow access to: 
 
-    quay.io:443 for Cloud Pak for Integration
-
-    github.com for operator packages and tools
-
+*    icr.io:443 for entitled registry
+   * quay.io:443 for Cloud Pak for Integration
+   * github.com for operator packages and tools
     redhat.com for Red Hat OpenShift Container Platform upgrades
-
 
 oc login with proper credentials
 
@@ -39,7 +36,7 @@ Get entitlement and log in to cp.icr.io with entitlement-key user=cp , password=
 ## Populate Mirror and apply Catalog Sources and ImageContertSourcePolicies
 Step 02-mirror-airgap-xxxxx.sh will mirror the images, apply imagesourcepolicies.  Where xxxx is either bastion or portable, depending on the mirroring path you chose. Edit  02-mirror-airgap-bastion.sh and set TARGET_REGISTRY to the name of your mirror registry. 
 
-## ** 16.1.1 Note. If mirroring of ibm-integration-platform-navigator version 8.0.2 fails, mirror 8.0.1 instead
+#### ** 16.1.1 Note. If mirroring of ibm-integration-platform-navigator version 8.0.2 fails, mirror 8.0.1 instead
 
 ## Bastion Path
 Get entitlement and log in to cp.icr.io with entitlement-key user=cp , password=<entitlement-key>
@@ -95,7 +92,7 @@ verify that the catalog sources you created above are present
 ## Create Namespaces and Install RH Cert Manager
 If you are installing to a namespace, look at 02b-cp4iopgroup.yaml and 13-foundationservices-sub.yaml and make sure the name space is set to the namespace you want to install to and then run. If you are scoping to cluster, don't run 02b-cp4iopgroup.yaml and make sure that foundation services (13-foundationservices-sub.yaml) is created in the ibm-common-services namespace.
 
-## **Note: You need to go in to 10-create-namespaces.sh and make sure that you set the project in the last line to either openshift-operators if you are scoping to the cluster or to the namespace that you are installing to if you are scoping to a single namespace. 
+#### **Note: You need to go in to 10-create-namespaces.sh and make sure that you set the project in the last line to either openshift-operators if you are scoping to the cluster or to the namespace that you are installing to if you are scoping to a single namespace. 
 
 `./10-create-namespaces.sh`
 
