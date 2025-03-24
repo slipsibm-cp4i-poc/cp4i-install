@@ -29,7 +29,8 @@ Install instructions for 16.1.1 are [here](https://www.ibm.com/docs/en/cloud-pak
     * github.com for operator packages and tools
     * redhat.com and redhat.io for Red Hat OpenShift Container Platform upgrades
 
-1. oc login with proper credentials
+1. Login to your OpenShift Cluster via oc login command with proper credentials
+    * `oc login --token=xxxxxxx --server=<https://api.your.openshift:port>`
 
 1. [Download](https://github.com/IBM/ibm-pak?tab=readme-ov-file#overview) and install ibm-pak plugin
 
