@@ -53,7 +53,7 @@ Examine mirroring script to determine which components of cloud pak you want to 
 
 `./02-mirror-airgap-bastion.sh` 
 
-This script iterates thru these sections of this [install.](https://www.ibm.com/docs/en/cloud-paks/cp-integration/16.1.1?topic=cluster-mirroring-images-bastion-host#pcenv__title__1)
+This script iterates thru these sections of the [install.](https://www.ibm.com/docs/en/cloud-paks/cp-integration/16.1.1?topic=cluster-mirroring-images-bastion-host#pcenv__title__1)
 
 [Mirror Red Hat Operators if necessary](/README-airgap.md/#mirror-red-hat-operators-if-necessary)
 
@@ -74,7 +74,7 @@ Move machine or portable file system to airgapped network and login to your mirr
 
 `./02-mirror-airgap-portable-part2.sh`
 
-This script iterates thru these sections of this [install](https://www.ibm.com/docs/en/cloud-paks/cp-integration/16.1.1?topic=miagoc-mirroring-images-portable-compute-storage-device-file-system)
+This script iterates thru these sections of the [install](https://www.ibm.com/docs/en/cloud-paks/cp-integration/16.1.1?topic=miagoc-mirroring-images-portable-compute-storage-device-file-system)
 
 [Mirror Red Hat Operators if necessary](/README-airgap.md/#mirror-red-hat-operators-if-necessary)
 ## Mirror Red Hat Operators if Necessary

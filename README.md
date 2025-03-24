@@ -8,7 +8,9 @@ See [Airgapped instructions](README-airgap.md) for airgapped instructions.
 
 ## Disclaimer
 
-These instructions and yaml are just helpers. Make sure you consult the install docs to ensure you understand the steps and that nothing has changed. Install instructions for 16.1.1 are here -> <https://www.ibm.com/docs/en/cloud-paks/cp-integration/16.1.1?topic=installing#manual-installation__title__1>
+These instructions and yaml are just helpers. Make sure you consult the install docs to ensure you understand the steps and that nothing has changed. 
+
+Install instructions for 16.1.1 are [here](<https://www.ibm.com/docs/en/cloud-paks/cp-integration/16.1.1?topic=installing#manual-installation__title__1>)
 
 ## Installation
 
@@ -18,11 +20,16 @@ download and install ibm-pak plugin
 
 go into 02-cat-source.sh and make sure arch is set properly and that all the Operator Version Levels are all correct for the Cloud Pak version and Release you are installing.
 
-add ibm-entitlement key to global pull secret
-https://docs.redhat.com/en/documentation/openshift_container_platform/4.14/html/images/managing-images#images-update-global-pull-secret_using-image-pull-secrets
+Add ibm-entitlement key to [global pull secret](https://docs.redhat.com/en/documentation/openshift_container_platform/4.14/html/images/managing-images#images-update-global-pull-secret_using-image-pull-secrets)
+
+## Create Namespaces and Install RH Cert Manager
+
+If you are installing to a namespace, look at 02b-cp4iopgroup.yaml and 13-foundationservices-sub.yaml and make sure the name space is set to the namespace you want to install to and then run. If you are scoping to cluster, don't run 02b-cp4iopgroup.yaml and make sure that foundation services (13-foundationservices-sub.yaml) is created in the ibm-common-services namespace.
+
+#### **Note: You need to go in to 10-create-namespaces.sh and make sure that you set the project in the last line to either openshift-operators if you are scoping to the cluster or to the namespace that you are installing to if you are scoping to a single namespace
 
 
-## **Note: You need to go in to 10-create-namespaces.sh and make sure that you set the project in the last line to either openshift-operators if you are scoping to the cluster or to the namespace that you are installing to if you are scoping to a single namespace
+
 
 `./10-create-namespaces.sh`
 
@@ -85,5 +92,4 @@ Verify platform navigator installed, get route and credentials
 
 `oc get secret integration-admin-initial-temporary-credentials -n ibm-common-services -o jsonpath='{.data.password}' | base64 --decode`
 
-If you try and delete Common Services Namespace and it doesn't terminate, try this:
-<https://www.ibm.com/docs/en/cloud-paks/foundational-services/4.6?topic=online-uninstalling-foundational-services>
+If you try and delete Common Services Namespace and it doesn't terminate, try [this.](<https://www.ibm.com/docs/en/cloud-paks/foundational-services/4.6?topic=online-uninstalling-foundational-services>)
