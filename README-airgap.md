@@ -70,6 +70,8 @@ Scripts 02-mirror-airgap-xxxxx.sh will mirror the images, apply imagesourcepolic
 1. [Mirror](/README-airgap.md/#mirror-red-hat-operators-if-necessary) Red Hat Operators if necessary
 
 1. Move machine or portable file system to airgapped network and login to your mirror registry.
+1. Login to your OpenShift Cluster via oc login command with proper credentials
+    * `oc login --token=xxxxxxx --server=<https://api.your.openshift:port>`
 1. `podman login to your mirror registry`
 1. Examine [02-mirror-airgap-portable-part1.sh](02-mirror-airgap-portable-part2.sh) to set components of Cloud Pak you downloaded in 02-mirror-airgap-portable-part1.sh to load into your mirror registry . Set TARGET_REGISTRY to point to your mirror
 1. `./02-mirror-airgap-portable-part2.sh`
