@@ -14,19 +14,19 @@ Install instructions for 16.1.1 are [here](<https://www.ibm.com/docs/en/cloud-pa
 
 ## Installation
 
-oc login with proper credentials
+1. `oc login` with proper credentials
+  
+1. [Download](https://github.com/IBM/ibm-pak#download-and-verify-software) and install ibm-pak plugin
 
-download and install ibm-pak plugin
+1. Go into [02-cat-source.sh](/02-cat-source.sh) and make sure arch is set properly and that all the Operator Version Levels are all correct for the Cloud Pak version and Release you are installing.
 
-go into 02-cat-source.sh and make sure arch is set properly and that all the Operator Version Levels are all correct for the Cloud Pak version and Release you are installing.
-
-Add ibm-entitlement key to [global pull secret](https://docs.redhat.com/en/documentation/openshift_container_platform/4.14/html/images/managing-images#images-update-global-pull-secret_using-image-pull-secrets)
+1. Add ibm-entitlement key to [global pull secret](https://docs.redhat.com/en/documentation/openshift_container_platform/4.14/html/images/managing-images#images-update-global-pull-secret_using-image-pull-secrets)
 
 ## Create Namespaces and Install RH Cert Manager
 
-If you are installing to a namespace, look at 02b-cp4iopgroup.yaml and 13-foundationservices-sub.yaml and make sure the name space is set to the namespace you want to install to and then run. If you are scoping to cluster, don't run 02b-cp4iopgroup.yaml and make sure that foundation services (13-foundationservices-sub.yaml) is created in the ibm-common-services namespace.
+If you are installing to a namespace, look at [02b-cp4iopgroup.yaml](02b-cp4iopgroup.yaml) and [13-foundationservices-sub.yaml](13-foundationservices-sub.yaml) and make sure the name space is set to the namespace you want to install to and then run. If you are scoping to cluster, don't run 02b-cp4iopgroup.yaml and make sure that foundation services (13-foundationservices-sub.yaml) is created in the ibm-common-services namespace.
 
-#### **Note: You need to go in to 10-create-namespaces.sh and make sure that you set the project in the last line to either openshift-operators if you are scoping to the cluster or to the namespace that you are installing to if you are scoping to a single namespace
+#### **Note: You need to go in to [10-create-namespaces.sh](10-create-namespaces.sh) and make sure that you set the project in the last line to either openshift-operators if you are scoping to the cluster or to the namespace that you are installing to if you are scoping to a single namespace
 
 
 
