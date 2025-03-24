@@ -28,7 +28,7 @@ Install instructions for 16.1.1 are [here](https://www.ibm.com/docs/en/cloud-pak
 
 1. [Download](https://github.com/IBM/ibm-pak?tab=readme-ov-file#overview) and install ibm-pak plugin
 
-1. Go into [02-mirror-airgap-bastion.sh](02-mirror-airgap-bastion.sh), [02-mirror-airgap-portable-part1.sh](02-mirror-airgap-portable-part1.sh) or [02-mirror-airgap-portable-part2.sh](02-mirror-airgap-portable-part2.sh) and make sure arch, OPERATOR_PACKAGE_NAME and OPERATOR_VERSION are set properly. [Check here for proper Operator versions](https://www.ibm.com/docs/en/cloud-paks/cp-integration/16.1.1?topic=miagoc-mirroring-images-portable-compute-storage-device-file-system#export-commands-for-operators__title__1)
+1. Go into [02-mirror-airgap-bastion.sh](02-mirror-airgap-bastion.sh) or ([02-mirror-airgap-portable-part1.sh](02-mirror-airgap-portable-part1.sh) and [02-mirror-airgap-portable-part2.sh](02-mirror-airgap-portable-part2.sh)) and make sure arch, OPERATOR_PACKAGE_NAME, OPERATOR_VERSION and TARGET_REGISRTY are set properly. [Check here for proper Operator versions](https://www.ibm.com/docs/en/cloud-paks/cp-integration/16.1.1?topic=miagoc-mirroring-images-portable-compute-storage-device-file-system#export-commands-for-operators__title__1)
 
 1. Go into [10-create-namespaces.sh](10-create-namespaces.sh) and set the namespace you want to install into. It is currently set to cp4i-demo. If you are running a namespace install, set the project to the namespace you want to install into via `oc project`, otherwise set it to openshift-operators
 
@@ -44,7 +44,7 @@ Step 02-mirror-airgap-xxxxx.sh will mirror the images, apply imagesourcepolicies
 
 1. `podman login to your mirror registry`
 
-1. Examine [02-mirror-airgap-bastion.sh](02-mirror-airgap-bastion.sh) to determine which components of cloud pak you want to mirror. Set TARGET_REGISTRY to point to your mirror
+1. Examine [02-mirror-airgap-bastion.sh](02-mirror-airgap-bastion.sh) to determine which components of cloud pak you want to mirror.
 
 1. `./02-mirror-airgap-bastion.sh` 
     * This script iterates thru these sections of the [install.](https://www.ibm.com/docs/en/cloud-paks/cp-integration/16.1.1?topic=cluster-mirroring-images-bastion-host#pcenv__title__1)
@@ -56,7 +56,7 @@ Step 02-mirror-airgap-xxxxx.sh will mirror the images, apply imagesourcepolicies
 
 1. Get ibm-entitlement-key
 1. `podman login cp.icr.io -u cp -p <entitlement-key>`
-1. Examine [02-mirror-airgap-portable-part1.sh](02-mirror-airgap-portable-part1.sh) to determine which components of cloud pak you want to mirror. Set TARGET_REGISTRY to point to your mirror
+1. Examine [02-mirror-airgap-portable-part1.sh](02-mirror-airgap-portable-part1.sh) to determine which components of cloud pak you want to mirror.
 
 1. `./02-mirror-airgap-portable-part1.sh`
     * This script iterates thru these sections of the [install.](https://www.ibm.com/docs/en/cloud-paks/cp-integration/16.1.1?topic=miagoc-mirroring-images-portable-compute-storage-device-file-system)
