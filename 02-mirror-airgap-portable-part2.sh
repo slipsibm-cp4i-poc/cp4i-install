@@ -2,7 +2,7 @@ export ARCH=amd64
 export TARGET_REGISTRY=bastion.gym.lan:8443/cp4i-demo
 export IMAGE_PATH=~/cp4i-portable-mirror
 export REGISTRY_AUTH_FILE=$XDG_RUNTIME_DIR/containers/auth.json
-export OPERATOR_PACKAGE_NAME=ibm-integration-platform-navigator && export OPERATOR_VERSION=8.0.2
+export OPERATOR_PACKAGE_NAME=ibm-integration-platform-navigator && export OPERATOR_VERSION=8.0.3
 oc image mirror \
   -f ~/.ibm-pak/data/mirror/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/images-mapping-from-filesystem.txt \
   -a $REGISTRY_AUTH_FILE \
@@ -103,16 +103,6 @@ oc image mirror \
 oc apply -f  ~/.ibm-pak/data/mirror/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/image-content-source-policy.yaml
 oc apply -f ~/catalog-source-$OPERATOR_PACKAGE_NAME-$OPERATOR_VERSION.yaml
 export OPERATOR_PACKAGE_NAME=ibm-licensing && export OPERATOR_VERSION=4.2.13
-oc image mirror \
-  -f ~/.ibm-pak/data/mirror/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/images-mapping-from-filesystem.txt \
-  -a $REGISTRY_AUTH_FILE \
-  --filter-by-os '.*' \
-  --skip-multiple-scopes \
-  --max-per-registry=1 \
-  --from-dir "$IMAGE_PATH" --insecure
-oc apply -f  ~/.ibm-pak/data/mirror/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/image-content-source-policy.yaml
-oc apply -f ~/catalog-source-$OPERATOR_PACKAGE_NAME-$OPERATOR_VERSION.yaml
-export OPERATOR_PACKAGE_NAME=ibm-datapower-operator && export OPERATOR_VERSION=1.13.1
 oc image mirror \
   -f ~/.ibm-pak/data/mirror/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/images-mapping-from-filesystem.txt \
   -a $REGISTRY_AUTH_FILE \
