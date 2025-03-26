@@ -1,0 +1,17 @@
+spec:    
+  allowedRegistriesForImport:
+    - domainName: quay.io                          //This entry exists by default
+      insecure: false
+    - domainName: registry.redhat.io               //Add this entry
+      insecure: false
+    - domainName: registry.connect.redhat.com      //Add this entry
+      insecure: false
+  registrySources:
+    allowedRegistries:
+      - quay.io
+      - registry.redhat.io
+      - 'image-registry.openshift-image-registry.svc:5000'
+      - cp.icr.io
+      - icr.io
+    insecureRegistries:
+      - 'bastion.gym.lan:8443'

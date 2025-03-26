@@ -22,7 +22,7 @@ oc image mirror \
   --from-dir "$IMAGE_PATH" --insecure
 oc apply -f  ~/.ibm-pak/data/mirror/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/image-content-source-policy.yaml
 oc apply -f ~/catalog-source-$OPERATOR_PACKAGE_NAME-$OPERATOR_VERSION.yaml
-export OPERATOR_PACKAGE_NAME=ibm-mq && export OPERATOR_VERSION=3.5.0
+export OPERATOR_PACKAGE_NAME=ibm-mq && export OPERATOR_VERSION=3.5.1
 oc image mirror \
   -f ~/.ibm-pak/data/mirror/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/images-mapping-from-filesystem.txt \
   -a $REGISTRY_AUTH_FILE \

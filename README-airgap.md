@@ -7,9 +7,16 @@ See See [Online install](README.md) for online install instructions.
 
 Updated For CP4I 16.1.1
 
-These instructions assume you have a working Openshift Environment and have already setup a mirror for Openshift. You will need an ID in the OpenShift environment with cluster admin authority. Also assumes that the global pull secret and addtional trust bundle are already set in the OCP cluster so that OCP can access your local registry. [Look here for a simple mirror registry.](https://docs.redhat.com/en/documentation/openshift_container_platform/4.16/html/disconnected_installation_mirroring/installing-mirroring-creating-registry#prerequisites_installing-mirroring-creating-registry) if you want to set up  your own mirror register.  
+These instructions assume you have a working Openshift Environment and have already setup a mirror for Openshift. You will need an ID in the OpenShift environment with cluster admin authority. Also assumes that the global pull secret and addtional trust bundle are already set in the OCP cluster so that OCP can access your local registry.
 
-For [instructions](https://docs.redhat.com/en/documentation/openshift_container_platform/4.16/html/networking/enable-cluster-wide-proxy#enable-cluster-wide-proxy) on how to trust your mirror if you want to set up your own. Sample `user-ca-bundle.yaml` provided [here](user-ca-bundle.yaml)  and `cluster-proxy.yaml` [here](cluster-proxy.yaml).  Don't execute these unless you know that your cluster doesn't have a proxy or user-ca-bundle already, otherwise you will mess up your cluster. Alternately, [You should be able to trust your registry by by editing the `image.config.openshift.io/cluster` custom resource (CR) and adding your mirror there.](https://docs.redhat.com/en/documentation/openshift_container_platform/4.16/html/images/image-configuration#images-configuration-file_image-configuration)
+### Setting up a mirror
+
+[Look here for a simple mirror registry.](https://docs.redhat.com/en/documentation/openshift_container_platform/4.16/html/disconnected_installation_mirroring/installing-mirroring-creating-registry#prerequisites_installing-mirroring-creating-registry) if you want to set up  your own mirror register.
+
+For [instructions](https://docs.redhat.com/en/documentation/openshift_container_platform/4.16/html/networking/enable-cluster-wide-proxy#enable-cluster-wide-proxy) on how to trust your mirror once set up your own. Sample `user-ca-bundle.yaml` provided [here](user-ca-bundle.yaml)  and `cluster-proxy.yaml` [here](cluster-proxy.yaml).  Don't execute these unless you know that your cluster doesn't have a proxy or user-ca-bundle already, otherwise you will mess up your cluster.
+
+Alternately, You should be able to trust your registry by by editing the `image.config.openshift.io/cluster` custom resource (CR) and adding your mirror there. [Instructions](https://docs.redhat.com/en/documentation/openshift_container_platform/4.16/html/images/image-configuration#images-configuration-file_image-configuration) can be found here.
+Sample [spec](sample-image-cluster.yaml) section of `image.config.openshift.io/cluster`
 
 ## Disclaimer
 
@@ -31,6 +38,10 @@ Install instructions for 16.1.1 are [here](https://www.ibm.com/docs/en/cloud-pak
 
 1. Login to your OpenShift Cluster via oc login command with proper credentials
     * `oc login --token=xxxxxxx --server=<https://api.your.openshift:port>`
+
+1. Ensure global pull secret has been updated with mirror information.
+
+1. Ensure you have trusted your mirror in OpenShift via one of the [above](#setting-up-a-mirror) approaches.
 
 1. [Download](https://github.com/IBM/ibm-pak?tab=readme-ov-file#overview) and install ibm-pak plugin
 
