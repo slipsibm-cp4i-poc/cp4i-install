@@ -45,6 +45,10 @@ Install instructions for 16.1.1 are [here](https://www.ibm.com/docs/en/cloud-pak
 
 1. [Download](https://github.com/IBM/ibm-pak?tab=readme-ov-file#overview) and install ibm-pak plugin
 
+1. If you can't get access to github, then execute this command to pull the cases from icr.io
+
+    `oc ibm-pak config repo --enable "IBM Cloud-Pak OCI registry`
+
 1. Go into [02-mirror-airgap-bastion.sh](02-mirror-airgap-bastion.sh) or ([02-mirror-airgap-portable-part1.sh](02-mirror-airgap-portable-part1.sh) and [02-mirror-airgap-portable-part2.sh](02-mirror-airgap-portable-part2.sh)) and make sure arch, OPERATOR_PACKAGE_NAME, OPERATOR_VERSION and TARGET_REGISRTY are set properly. [Check here for proper Operator versions](https://www.ibm.com/docs/en/cloud-paks/cp-integration/16.1.1?topic=miagoc-mirroring-images-portable-compute-storage-device-file-system#export-commands-for-operators__title__1)
 
 1. Go into [10-create-namespaces.sh](10-create-namespaces.sh) and set the namespace you want to install into. It is currently set to cp4i-demo. If you are running a namespace install, set the project to the namespace you want to install into via `oc project`, otherwise set it to openshift-operators
