@@ -141,15 +141,3 @@ oc image mirror \
 oc apply -f  ~/.ibm-pak/data/mirror/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/image-digest-mirror-set.yaml
 oc apply -f  ~/.ibm-pak/data/mirror/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/catalog-sources.yaml
 #  oc apply -f ~/catalog-source-$OPERATOR_PACKAGE_NAME-$OPERATOR_VERSION.yaml
-
-export OPERATOR_PACKAGE_NAME=ibm-license-service-reporter-operator && export OPERATOR_VERSION=4.2.13
-oc image mirror \
-  -f ~/.ibm-pak/data/mirror/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/images-mapping-from-filesystem.txt \
-  -a $REGISTRY_AUTH_FILE \
-  --filter-by-os '.*' \
-  --skip-multiple-scopes \
-  --max-per-registry=1 \
-  --from-dir "$IMAGE_PATH" --insecure
-oc apply -f  ~/.ibm-pak/data/mirror/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/image-digest-mirror-set.yaml
-oc apply -f  ~/.ibm-pak/data/mirror/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/catalog-sources.yaml
-#  oc apply -f ~/catalog-source-$OPERATOR_PACKAGE_NAME-$OPERATOR_VERSION.yaml
