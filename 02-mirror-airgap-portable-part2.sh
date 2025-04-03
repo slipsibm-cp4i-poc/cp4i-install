@@ -10,7 +10,7 @@ oc image mirror \
   --skip-multiple-scopes \
   --max-per-registry=1 \
   --from-dir "$IMAGE_PATH" --insecure
-oc apply -f  ~/.ibm-pak/data/mirror/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/image-content-source-policy.yaml
+oc apply -f  ~/.ibm-pak/data/mirror/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/image-digest-mirror-set.yaml
 oc apply -f  ~/.ibm-pak/data/mirror/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/catalog-sources.yaml
 #  oc apply -f ~/catalog-source-$OPERATOR_PACKAGE_NAME-$OPERATOR_VERSION.yaml
 
