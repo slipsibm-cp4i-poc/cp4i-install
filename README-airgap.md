@@ -188,6 +188,7 @@ Catalog names are the names used when creating the catalog sources. Those files 
 ### Install Platform Navigator UI
 
 `oc apply -f  31-platformnavigatorui.yaml`
+
 `oc get consolelink | grep "IBM Cloud Pak for Integration"`
 
 `oc get secret integration-admin-initial-temporary-credentials -n ibm-common-services -o jsonpath='{.data.password}' | base64 --decode`
