@@ -167,7 +167,9 @@ Catalog names are the names used when creating the catalog sources. Those files 
 
 ### Install License Service
 
-`oc apply -f  18-license-sub.yaml -n ibm-licensing`
+`oc apply -f  18a-license-og.yaml -n ibm-licensing`
+
+`oc apply -f 18b-license-sub.yaml -n ibm-licensing`
 
 ### Install MQ Operator
 
