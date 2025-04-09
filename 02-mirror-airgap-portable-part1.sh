@@ -145,3 +145,14 @@ oc image mirror \
   --max-per-registry=1 \
   --dir "$IMAGE_PATH"
 #  wget -O ~/catalog-source-$OPERATOR_PACKAGE_NAME-$OPERATOR_VERSION.yaml https://raw.githubusercontent.com/IBM/cloud-pak/master/repo/case/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/OLM/catalog-sources.yaml
+export OPERATOR_PACKAGE_NAME=ibm-license-service-reporter-bundle && export OPERATOR_VERSION=4.2.12
+oc ibm-pak get $OPERATOR_PACKAGE_NAME --version $OPERATOR_VERSION --skip-dependencies
+oc ibm-pak generate mirror-manifests $OPERATOR_PACKAGE_NAME file://integration --version $OPERATOR_VERSION --final-registry $TARGET_REGISTRY
+oc image mirror \
+  -f ~/.ibm-pak/data/mirror/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/images-mapping-to-filesystem.txt \
+  --filter-by-os '.*' \
+  -a $REGISTRY_AUTH_FILE \
+  --skip-multiple-scopes \
+  --max-per-registry=1 \
+  --dir "$IMAGE_PATH"
+#  wget -O ~/catalog-source-$OPERATOR_PACKAGE_NAME-$OPERATOR_VERSION.yaml https://raw.githubusercontent.com/IBM/cloud-pak/master/repo/case/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/OLM/catalog-sources.yaml

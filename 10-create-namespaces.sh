@@ -3,6 +3,7 @@ oc new-project cert-manager-operator
 oc new-project ibm-common-services
 oc new-project cp4i-demo
 oc new-project ibm-licensing
+oc new-project ibm-license-service-reporter
 # set the project to openshift-operators if you are installing to all namespaces or to the namespace you want to install to in installing to namespace only 
 # oc project openshift-operators
 oc project cp4i-demo
