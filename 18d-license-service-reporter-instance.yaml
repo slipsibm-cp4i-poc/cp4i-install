@@ -2,7 +2,7 @@ apiVersion: operator.ibm.com/v1alpha1
 kind: IBMLicenseServiceReporter
 metadata:
   name: ibm-lsr-instance
-  namespace: ${LSR_NAMESPACE}
+  namespace: ibm-license-service-reporter
   labels:
     app.kubernetes.io/created-by: ibm-license-service-reporter-operator
     app.kubernetes.io/instance: ibmlicenseservicereporter-instance
