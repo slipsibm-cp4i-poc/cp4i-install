@@ -10,7 +10,7 @@ spec:
   privateKey:
     algorithm: ECDSA
     size: 256
-  secretName: nhacrr-london-app-secret
+  secretName: nhacrr-london-app
 ---
 kind: Certificate
 apiVersion: cert-manager.io/v1
@@ -24,7 +24,7 @@ spec:
   privateKey:
     algorithm: ECDSA
     size: 256
-  secretName: nhacrr-london-int-secret
+  secretName: nhacrr-london-int
 ---
 kind: Certificate
 apiVersion: cert-manager.io/v1
@@ -38,7 +38,7 @@ spec:
   privateKey:
     algorithm: ECDSA
     size: 256
-  secretName: nhacrr-london-ext-secret
+  secretName: nhacrr-london-ext
 ---
 kind: Certificate
 apiVersion: cert-manager.io/v1
@@ -52,7 +52,7 @@ spec:
   privateKey:
     algorithm: ECDSA
     size: 256
-  secretName: nhacrr-rome-app-secret
+  secretName: nhacrr-rome-app
 ---
 kind: Certificate
 apiVersion: cert-manager.io/v1
@@ -66,7 +66,7 @@ spec:
   privateKey:
     algorithm: ECDSA
     size: 256
-  secretName: nhacrr-rome-int-secret
+  secretName: nhacrr-rome-int
 ---
 kind: Certificate
 apiVersion: cert-manager.io/v1
@@ -80,5 +80,5 @@ spec:
   privateKey:
     algorithm: ECDSA
     size: 256
-  secretName: nhacrr-rome-ext-secret
+  secretName: nhacrr-rome-ext
 ---
