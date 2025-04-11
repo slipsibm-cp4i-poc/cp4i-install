@@ -62,8 +62,9 @@ spec:
   issuerRef:
      name: osm-ca
   privateKey:
-    algorithm: ECDSA
-    size: 256
+    algorithm: RSA
+    encoding: PKCS1
+    size: 4096
   secretName: nhacrr-rome-app
 ---
 kind: Certificate
@@ -76,8 +77,9 @@ spec:
   issuerRef:
      name: osm-ca
   privateKey:
-    algorithm: ECDSA
-    size: 256
+    algorithm: RSA
+    encoding: PKCS1
+    size: 4096
   secretName: nhacrr-rome-int
 ---
 kind: Certificate
@@ -90,7 +92,8 @@ spec:
   issuerRef:
      name: osm-ca
   privateKey:
-    algorithm: ECDSA
-    size: 256
+    algorithm: RSA
+    encoding: PKCS1
+    size: 4096
   secretName: nhacrr-rome-ext
 ---
