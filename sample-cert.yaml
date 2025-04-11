@@ -1,0 +1,84 @@
+kind: Certificate
+apiVersion: cert-manager.io/v1
+metadata:
+  name: nhacrr-london-app
+  namespace: cp4i-demo
+spec:
+  commonName: selfsigned-ca.dns.name
+  issuerRef:
+     name: selfsigned-issuer
+  privateKey:
+    algorithm: ECDSA
+    size: 256
+  secretName: nhacrr-london-app-secret
+---
+kind: Certificate
+apiVersion: cert-manager.io/v1
+metadata:
+  name: nhacrr-london-int
+  namespace: cp4i-demo
+spec:
+  commonName: selfsigned-ca.dns.name
+  issuerRef:
+     name: selfsigned-issuer
+  privateKey:
+    algorithm: ECDSA
+    size: 256
+  secretName: nhacrr-london-int-secret
+---
+kind: Certificate
+apiVersion: cert-manager.io/v1
+metadata:
+  name: nhacrr-london-ext
+  namespace: cp4i-demo
+spec:
+  commonName: selfsigned-ca.dns.name
+  issuerRef:
+     name: selfsigned-issuer
+  privateKey:
+    algorithm: ECDSA
+    size: 256
+  secretName: nhacrr-london-ext-secret
+---
+kind: Certificate
+apiVersion: cert-manager.io/v1
+metadata:
+  name: nhacrr-rome-app
+  namespace: cp4i-demo
+spec:
+  commonName: selfsigned-ca.dns.name
+  issuerRef:
+     name: selfsigned-issuer
+  privateKey:
+    algorithm: ECDSA
+    size: 256
+  secretName: nhacrr-rome-app-secret
+---
+kind: Certificate
+apiVersion: cert-manager.io/v1
+metadata:
+  name: nhacrr-rome-int
+  namespace: cp4i-demo
+spec:
+  commonName: selfsigned-ca.dns.name
+  issuerRef:
+     name: selfsigned-issuer
+  privateKey:
+    algorithm: ECDSA
+    size: 256
+  secretName: nhacrr-rome-int-secret
+---
+kind: Certificate
+apiVersion: cert-manager.io/v1
+metadata:
+  name: nhacrr-rome-ext
+  namespace: cp4i-demo
+spec:
+  commonName: selfsigned-ca.dns.name
+  issuerRef:
+     name: selfsigned-issuer
+  privateKey:
+    algorithm: ECDSA
+    size: 256
+  secretName: nhacrr-rome-ext-secret
+---
