@@ -5,11 +5,15 @@ metadata:
   namespace: cp4i-demo
 spec:
   commonName: selfsigned-ca.dns.name
+  subject: 
+    organizations:
+    - cp4i
   issuerRef:
-     name: selfsigned-issuer
+     name: osm-ca
   privateKey:
-    algorithm: ECDSA
-    size: 256
+    algorithm: RSA
+    encoding: PKCS1
+    size: 4096
   secretName: nhacrr-london-app
 ---
 kind: Certificate
@@ -19,11 +23,15 @@ metadata:
   namespace: cp4i-demo
 spec:
   commonName: selfsigned-ca.dns.name
+  subject: 
+    organizations:
+    - cp4i  
   issuerRef:
-     name: selfsigned-issuer
+     name: osm-ca
   privateKey:
-    algorithm: ECDSA
-    size: 256
+    algorithm: RSA
+    encoding: PKCS1
+    size: 4096
   secretName: nhacrr-london-int
 ---
 kind: Certificate
@@ -33,11 +41,15 @@ metadata:
   namespace: cp4i-demo
 spec:
   commonName: selfsigned-ca.dns.name
+  subject: 
+    organizations:
+    - cp4i
   issuerRef:
-     name: selfsigned-issuer
+     name: osm-ca
   privateKey:
-    algorithm: ECDSA
-    size: 256
+    algorithm: RSA
+    encoding: PKCS1
+    size: 4096
   secretName: nhacrr-london-ext
 ---
 kind: Certificate
@@ -48,7 +60,7 @@ metadata:
 spec:
   commonName: selfsigned-ca.dns.name
   issuerRef:
-     name: selfsigned-issuer
+     name: osm-ca
   privateKey:
     algorithm: ECDSA
     size: 256
@@ -62,7 +74,7 @@ metadata:
 spec:
   commonName: selfsigned-ca.dns.name
   issuerRef:
-     name: selfsigned-issuer
+     name: osm-ca
   privateKey:
     algorithm: ECDSA
     size: 256
@@ -76,7 +88,7 @@ metadata:
 spec:
   commonName: selfsigned-ca.dns.name
   issuerRef:
-     name: selfsigned-issuer
+     name: osm-ca
   privateKey:
     algorithm: ECDSA
     size: 256

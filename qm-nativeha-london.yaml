@@ -5,8 +5,8 @@ metadata:
 spec:
   license:
     accept: true
-    license: L-NUUP-23NH8Y
-    use: Production
+    license: L-QYVA-B365MB
+    use: NonProduction
   queueManager:
     name: EXAMPLEQM
     availability:
@@ -36,3 +36,10 @@ spec:
             - tls.key
             - tls.crt
             - ca.crt
+  web:
+    console:
+      authentication:
+        provider: integration-keycloak
+      authorization:
+        provider: integration-keycloak
+    enabled: true            
