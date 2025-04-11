@@ -15,7 +15,7 @@ spec:
         secretName: nhacrr-rome-int
     mqsc:
     - configMap:
-        name: qnhacrr-rome-configmap
+        name: nhacrr-rome-configmap
         items:
         - example-tls.mqsc
     ini:

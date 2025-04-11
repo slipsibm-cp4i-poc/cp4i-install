@@ -15,7 +15,7 @@ spec:
         secretName: nhacrr-london-int
     mqsc:
     - configMap:
-        name: qnhacrr-london-configmap
+        name: nhacrr-london-configmap
         items:
         - example-tls.mqsc
     ini:
