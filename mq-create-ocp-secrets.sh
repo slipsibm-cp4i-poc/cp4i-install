@@ -1,0 +1,6 @@
+oc create secret generic nhacrr-rome-ext --type="kubernetes.io/tls" --from-file=tls.key=nhacrr-rome-ext.key --from-file=tls.crt=nhacrr-rome-ext.crt --from-file=ca.crt
+oc create secret generic nhacrr-rome-app --type="kubernetes.io/tls" --from-file=tls.key=nhacrr-rome-app.key --from-file=tls.crt=nhacrr-rome-app.crt --from-file=ca.crt
+oc create secret generic nhacrr-rome-int --type="kubernetes.io/tls" --from-file=tls.key=nhacrr-rome-int.key --from-file=tls.crt=nhacrr-rome-int.crt --from-file=ca.crt
+oc create secret generic nhacrr-london-app --type="kubernetes.io/tls" --from-file=tls.key=nhacrr-london-app.key --from-file=tls.crt=nhacrr-london-app.crt --from-file=ca.crt
+oc create secret generic nhacrr-london-int --type="kubernetes.io/tls" --from-file=tls.key=nhacrr-london-int.key --from-file=tls.crt=nhacrr-london-int.crt --from-file=ca.crt
+oc create secret generic nhacrr-london-ext --type="kubernetes.io/tls" --from-file=tls.key=nhacrr-london-ext.key --from-file=tls.crt=nhacrr-london-ext.crt --from-file=ca.crt
