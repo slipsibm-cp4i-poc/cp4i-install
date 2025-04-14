@@ -1,0 +1,60 @@
+apiVersion: mq.ibm.com/v1beta1
+kind: QueueManager
+metadata:
+  name: exampleqm
+  namespace: cp4i-demo
+spec:
+  license:
+    accept: true
+    license: L-QYVA-B365MB
+    use: NonProduction
+  pki:
+    keys:
+      - secret:
+          items:
+            - tls.key
+            - tls.crt
+            - ca.crt
+          secretName: nhacrr-london-app
+        name: default
+  web:
+    console:
+      authentication:
+        provider: integration-keycloak
+      authorization:
+        provider: integration-keycloak
+    enabled: true
+  queueManager:
+    ini:
+      - configMap:
+          items:
+            - example-tls.ini
+          name: nhacrr-london-configmap
+    mqsc:
+      - configMap:
+          items:
+            - example-tls.mqsc
+          name: nhacrr-london-configmap
+    availability:
+      nativeHAGroups:
+        local:
+          tls:
+            key:
+              secretName: nhacrr-london-ext
+          name: London_group
+          role: Live
+        remotes:
+          - addresses:
+              - 'exampleqm-ibm-mq-nhacrr-cp4i-demo.apps.cp4i2.gym.lan:443'
+            trust:
+              - secret:
+                  secretName: nhacrr-rome-ext2
+            name: Rome_group
+      tls:
+        secretName: nhacrr-london-int
+      type: NativeHA
+    storage:
+      queueManager:
+        type: persistent-claim
+    name: EXAMPLEQM
+  version: 9.4.2.0-r2
