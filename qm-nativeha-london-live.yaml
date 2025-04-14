@@ -48,7 +48,7 @@ spec:
               - 'exampleqm-ibm-mq-nhacrr-cp4i-demo.apps.cp4i2.gym.lan:443'
             trust:
               - secret:
-                  secretName: nhacrr-rome-ext2
+                  secretName: nhacrr-rome-ext
             name: Rome_group
       tls:
         secretName: nhacrr-london-int
