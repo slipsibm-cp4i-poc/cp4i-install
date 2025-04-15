@@ -194,3 +194,29 @@ Catalog names are the names used when creating the catalog sources. Those files 
 `oc get consolelink | grep "IBM Cloud Pak for Integration"`
 
 `oc get secret integration-admin-initial-temporary-credentials -n ibm-common-services -o jsonpath='{.data.password}' | base64 --decode`
+
+## MQ NativeHA - CRR Setup
+
+### Create certs
+
+If you want to generate self-signed certs for your QMgrs for testing you can use these commands. They will create the certs and the secrets referenced in [Example: Configuring Native HA CRR using the IBM MQ Operator](https://www.ibm.com/docs/en/ibm-mq/9.4.x?topic=chaqmumo-example-configuring-native-ha-crr-using-mq-operator) using this procedure to create the [certs.](https://www.ibm.com/docs/en/ibm-mq/9.4.x?topic=manager-creating-self-signed-pki-using-openssl)
+
+[mq-create-ssl-certs.sh](mq-create-ssl-certs.sh)
+
+[mq-create-ocp-secrets.sh](mq-create-ocp-secrets.sh)
+
+## Create QMgr "London"
+
+Add the configmap for MQ QMgr definitions
+
+`mq-configmap-london.yaml`
+
+Create "London" QMgr
+
+`qm-nativeha-london-live.yaml`
+
+Switch to "Rome" OCP Cluster
+Add the configmap for MQ QMgr definitions
+
+`qm-nativeha.rome-remote.yaml`
+
