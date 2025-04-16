@@ -216,6 +216,7 @@ Create "London" QMgr
 `qm-nativeha-london-live.yaml`
 
 Switch to "Rome" OCP Cluster
+
 Add the configmap for MQ QMgr definitions
 
 `qm-nativeha.rome-remote.yaml`
