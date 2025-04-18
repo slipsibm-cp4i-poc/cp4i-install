@@ -205,7 +205,7 @@ If you want to generate self-signed certs for your QMgrs for testing you can use
 
 [mq-create-ocp-secrets.sh](mq-create-ocp-secrets.sh)
 
-## Create QMgr "London"
+## Create Q Managers in both regions
 
 Add the configmap for MQ QMgr definitions
 
@@ -218,6 +218,10 @@ Create "London" QMgr
 Switch to "Rome" OCP Cluster
 
 Add the configmap for MQ QMgr definitions
+
+`mq-configmap-rome.yaml`
+
+Create "London" QMgr
 
 `qm-nativeha.rome-remote.yaml`
 
