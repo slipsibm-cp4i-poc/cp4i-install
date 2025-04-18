@@ -26,9 +26,17 @@ Install instructions for 16.1.1 are [here](<https://www.ibm.com/docs/en/cloud-pa
 
 If you are installing to a namespace, look at [02b-cp4iopgroup.yaml](02b-cp4iopgroup.yaml) and [13-foundationservices-sub.yaml](13-foundationservices-sub.yaml) and make sure the name space is set to the namespace you want to install to and then run. If you are scoping to cluster, don't run 02b-cp4iopgroup.yaml and make sure that foundation services (13-foundationservices-sub.yaml) is created in the ibm-common-services namespace.
 
-### **Note: You need to go in to [10-create-namespaces.sh](10-create-namespaces.sh) and make sure that you set the project in the last line to either openshift-operators if you are scoping to the cluster or to the namespace that you are installing to if you are scoping to a single namespace
+## Cloud pak Install
+
+### Create Namespaces and Install RH Cert Manager
+
+If you are installing to a namespace, look at 02b-cp4iopgroup.yaml and 13-foundationservices-sub.yaml and make sure the name space is set to the namespace you want to install to and then run. If you are scoping to cluster, don't run 02b-cp4iopgroup.yaml and make sure that foundation services (13-foundationservices-sub.yaml) is created in the ibm-common-services namespace.
+
+#### **Note: You need to go in to 10-create-namespaces.sh and make sure that you set the project in the last line to either openshift-operators if you are scoping to the cluster or to the namespace that you are installing to if you are scoping to a single namespace
 
 `./10-create-namespaces.sh`
+
+`oc apply -f 02b-cp4iopgroup.yaml` * Run only if installing in Namespace Mode
 
 `oc apply -f 11a-certmanager-opgroup.yaml`
 
@@ -36,9 +44,13 @@ If you are installing to a namespace, look at [02b-cp4iopgroup.yaml](02b-cp4iopg
 
 `oc get csv -n cert-manager-operator`
 
-`./02-cat-source.sh`
+Validate that the following *-sub.yaml files below are set properly with the name, catalog and channel versions are set properly.
 
-Note that it is normal that you may see an error in the apply's.
+* Operator names available [here](https://www.ibm.com/docs/en/cloud-paks/cp-integration/16.1.1?topic=operators-installing-by-using-cli#operators-available__title__1)
+
+* Channels can be found [here](https://www.ibm.com/docs/en/cloud-paks/cp-integration/16.1.1?topic=reference-operator-instance-versions-this-release)
+
+Catalog names are the names used when creating the catalog sources. Those files are generated out of the mirror command above.
 
 ### Install Foundation Services Operator
 
@@ -62,7 +74,9 @@ Note that it is normal that you may see an error in the apply's.
 
 ### Install License Service
 
-`oc apply -f  18-license-sub.yaml -n ibm-licensing`
+`oc apply -f  18a-license-og.yaml -n ibm-licensing`
+
+`oc apply -f 18b-license-sub.yaml -n ibm-licensing`
 
 ### Install MQ Operator
 
@@ -84,9 +98,36 @@ Note that it is normal that you may see an error in the apply's.
 
 `oc apply -f  31-platformnavigatorui.yaml`
 
-Verify platform navigator installed, get route and credentials
 `oc get consolelink | grep "IBM Cloud Pak for Integration"`
 
 `oc get secret integration-admin-initial-temporary-credentials -n ibm-common-services -o jsonpath='{.data.password}' | base64 --decode`
 
-If you try and delete Common Services Namespace and it doesn't terminate, try [this.](<https://www.ibm.com/docs/en/cloud-paks/foundational-services/4.6?topic=online-uninstalling-foundational-services>)
+## MQ NativeHA - CRR Setup
+
+### Create certs
+
+If you want to generate self-signed certs for your QMgrs for testing you can use these commands. They will create the certs and the secrets referenced in [Example: Configuring Native HA CRR using the IBM MQ Operator](https://www.ibm.com/docs/en/ibm-mq/9.4.x?topic=chaqmumo-example-configuring-native-ha-crr-using-mq-operator) using this procedure to create the [certs.](https://www.ibm.com/docs/en/ibm-mq/9.4.x?topic=manager-creating-self-signed-pki-using-openssl)
+
+[mq-create-ssl-certs.sh](mq-create-ssl-certs.sh)
+
+[mq-create-ocp-secrets.sh](mq-create-ocp-secrets.sh)
+
+## Create Q Managers in both regions
+
+Add the configmap for MQ QMgr definitions
+
+`mq-configmap-london.yaml`
+
+Create "London" QMgr
+
+`qm-nativeha-london-live.yaml`
+
+Switch to "Rome" OCP Cluster
+
+Add the configmap for MQ QMgr definitions
+
+`mq-configmap-rome.yaml`
+
+Create "London" QMgr
+
+`qm-nativeha.rome-remote.yaml`
