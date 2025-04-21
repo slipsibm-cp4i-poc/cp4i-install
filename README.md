@@ -16,8 +16,6 @@ Install instructions for 16.1.1 are [here](<https://www.ibm.com/docs/en/cloud-pa
 
 1. `oc login` with proper credentials
   
-1. [Download](https://github.com/IBM/ibm-pak#download-and-verify-software) and install ibm-pak plugin
-
 1. Go into [02-cat-source.sh](/02-cat-source.sh) and make sure arch is set properly and that all the Operator Version Levels are all correct for the Cloud Pak version and Release you are installing.
 
 1. Add ibm-entitlement key to [global pull secret](https://docs.redhat.com/en/documentation/openshift_container_platform/4.14/html/images/managing-images#images-update-global-pull-secret_using-image-pull-secrets)
