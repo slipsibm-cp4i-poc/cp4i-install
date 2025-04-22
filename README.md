@@ -114,7 +114,7 @@ If you want to generate self-signed certs for your QMgrs for testing you can use
 
 Add the configmap for MQ QMgr definitions
 
-`mq-configmap-london.yaml`
+`qm-configmap-london.yaml`
 
 Create "London" QMgr
 
