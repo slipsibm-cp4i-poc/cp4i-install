@@ -5,6 +5,8 @@ export OPERATOR_PACKAGE_NAME=ibm-apiconnect && export OPERATOR_VERSION=6.0.0
 oc apply --filename https://raw.githubusercontent.com/IBM/cloud-pak/master/repo/case/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/OLM/catalog-sources.yaml
 export OPERATOR_PACKAGE_NAME=ibm-mq && export OPERATOR_VERSION=3.5.0
 oc apply --filename https://raw.githubusercontent.com/IBM/cloud-pak/master/repo/case/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/OLM/catalog-sources.yaml
+export OPERATOR_PACKAGE_NAME=ibm-appconnect && export OPERATOR_VERSION=12.11.1
+oc apply --filename https://raw.githubusercontent.com/IBM/cloud-pak/master/repo/case/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/OLM/catalog-sources.yaml
 export OPERATOR_PACKAGE_NAME=ibm-eventstreams && export OPERATOR_VERSION=3.6.1
 oc apply --filename https://raw.githubusercontent.com/IBM/cloud-pak/master/repo/case/$OPERATOR_PACKAGE_NAME/$OPERATOR_VERSION/OLM/catalog-sources.yaml
 export OPERATOR_PACKAGE_NAME=ibm-eventendpointmanagement && export OPERATOR_VERSION=11.4.2
